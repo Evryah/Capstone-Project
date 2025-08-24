@@ -1,0 +1,556 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;  /* Ensure the body takes the full height of the screen */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 85px;
+    background-color: white;
+    justify-content: space-between;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .logo {
+    height: 100%;
+}
+
+.nav-bar .logo img {
+    height: 100%;
+}
+
+.nav-bar #nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-bar #nav-links li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#nav-links li {
+    position: relative;
+}
+
+#nav-links li a::before {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: #036e3a;
+    position: absolute;
+    bottom: -10px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    left: 0.4%;
+}
+
+#nav-links .activate a::before,
+#nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+    right: 50px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Style for logout link */
+#logout {
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+#logout {
+    display: none;
+}
+
+#logout i {
+    font-size: 1.2rem;
+}
+
+#logout:hover {
+    color: #036e3a;
+    background-color: #f0f0f0;
+    border-color: #036e3a;
+}
+
+/* Notification styles */
+.notifications {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications .fa-bell {
+    font-size: 1.5rem;
+    color: #444;
+    margin-right: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: block; /* Ensure it is visible */
+    position: absolute;
+    right: 10px; /* Adjust to your preference */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    color: #444; /* Ensure it's visible with appropriate color */
+}
+
+/* Profile Page Container */
+.profile-details {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Section Header Styling */
+.profile-details h2 {
+    text-align: center;
+    color: #036e3a;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+/* Individual Field Container */
+.field-container {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Label Styling */
+.field-container label {
+    font-weight: bold;
+    color: #444;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input and Span Field Styling */
+.field-container input,
+.field-container span {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Editable input field styling */
+.field-container input {
+    background-color: #fff;
+}
+
+.field-container span {
+    background-color: #f3f3f3;
+}
+
+/* Error styling for invalid inputs */
+.field-container input.error {
+    border-color: red;
+    background-color: #ffe6e6;
+}
+
+.field-container .error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Update button styling */
+.update-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #036e3a;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.update-button:hover {
+    background-color: #024d2a;
+}
+
+/* Two-column layout for specific fields */
+.two-column {
+    display: flex;
+    gap: 20px;
+}
+
+.two-column .field-container {
+    flex: 1;
+    margin-bottom: 0; /* Remove extra margin when in two-column layout */
+}
+
+/* Optional - Customize the password input field specifically if needed */
+.field-container input[type="password"] {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Update Profile button styling */
+.update-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #036e3a;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.update-button:hover {
+    background-color: #024d2a;
+}
+
+/* Styling for the compact barangay select dropdown */
+.field-container select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    appearance: none; /* Removes default arrow styling */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    max-height: 38px; /* Sets a reasonable height */
+    overflow-y: hidden; /* Prevents stretching */
+}
+
+/* Focus and hover styling */
+.field-container select:hover, .field-container select:focus {
+    border-color: #036e3a;
+    outline: none;
+}
+
+#idPreview {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-label {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container input[type="password"],
+.password-input-container input[type="text"] {
+    width: 100%;
+    padding-right: 30px; /* Add padding to avoid text overlap with icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #444;
+}
+
+input[readonly], select[disabled], input[type="file"][disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+
+/* Styling for editable fields */
+input[readonly], select[disabled], input[type="file"][disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Style for editable fields like Phone Number, Barangay, Address */
+.field-container input,
+.field-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container input[type="password"] {
+    width: 100%;
+    padding-right: 30px; /* space for eye icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #444;
+}
+
+.user-info #user-profile-link i.fa-user {
+    color: black; /* Set the color to black */
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 90%;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: auto; /* Push the footer to the bottom when the content is short */
+}
+
+.footer .left-side-footer, .footer .right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.footer .left-side-footer {
+    flex: 1;
+}
+
+.footer .right-side-footer {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-icons {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icons a {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.contact-icons a:hover {
+    color: #f5f5f5;
+}
+@media (min-width: 769px) {
+    .mobile-logout {
+        display: none;
+    }
+
+    /* Show the desktop logout button */
+    .user-info #logout {
+        display: inline;
+    }
+}@media (max-width: 768px) {
+    .mobile-logout {
+        display: block;
+    }
+
+    /* Hide the desktop logout button in mobile view */
+    .user-info #logout {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav-bar #nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column; /* Stack items vertically in mobile view */
+        position: absolute;
+        right: 0;
+        top: 85px; /* Positioned just below the nav bar */
+        background-color: white;
+        width: 200px;
+        z-index: 1000; /* Ensure dropdown is on top */
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    }
+
+    .nav-bar #nav-links.active {
+        display: flex; /* Show links when active class is toggled */
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 60px; /* Adjusted for mobile view */
+        z-index: 1000;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .user-info {
+        position: absolute;
+        top: 50%;
+        right: 90px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    #logout {
+        display: none;
+    }
+    .footer {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .menu-icon {
+        font-size: 1.5rem;
+    }
+
+    .user-info {
+        right: 60px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .footer a {
+        font-size: 1rem;
+    }
+
+    .contact-icons a {
+        font-size: 1.3rem;
+    }
+}

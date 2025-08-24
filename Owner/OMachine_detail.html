@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="OMachine_detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
+    <link href="/lib/lightbox.min.css" rel="stylesheet" />
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Machine Details</title>
+    <script src="/lib/tailwind-3.4.14.js"></script>
+    <script src="/lib/lightbox-plus-jquery.min.js"></script>
+</head>
+<body>
+      <!-- Navigation Bar -->
+      <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="My_Machine.html"><i class="fa fa-fw fa-tractor"></i>My Machines</a></li>
+                    <li><a href="Machine_Listing.html"><i class="fa fa-fw fa-clipboard-list"></i>List a Machine</a></li>
+                    <li><a href="Owner_Reservation.html"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Reservations</a></li>
+                    <li><a href="OEditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+           
+                    <!-- Add the logout button here for mobile view -->
+                    <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <i class="fa fa-user"></i>
+            <span id="user-name">Alden</span>
+            <a href="#" id="logout">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- Machine Detail Section -->
+    <div class="machine-detail-container">
+        <!-- Left Section: Machine Information and Images -->
+        <div class="left-section">
+            <div class="machine-info">
+                <h2 id="machine-category" class="machine-category"></h2>
+                <h1 id="machine-title" class="large-bold-title"></h1>
+            </div>
+            <div class="image-gallery">
+                <img id="main-image" src="" alt="Main Image">
+                <p id="image-error" style="color:red;"></p>
+                <div class="thumbnail-images" id="thumbnail-container"></div>
+            </div>
+
+           <!-- Owner Profile Card -->
+           <div class="owner-profile-card flex flex-col md:flex-row bg-card p-2 rounded-lg shadow-md">
+            <div class="flex-1">
+                <div class="flex items-center mb-2">
+                    <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                        <span class="text-white">📷</span>
+                    </div>
+                    <h2 class="ml-2 text-lg font-semibold" id="owner-name">Matty</h2>
+                </div>
+                <!-- Dynamic Rating Display -->
+                <div class="rating flex items-center mb-2" id="owner-service-rating"></div>
+                <div class="text-muted-foreground mb-1 flex items-center">
+                    <i class="fa fa-map-marker"></i>
+                    <span id="owner-response-time" class="ml-2">Phase 1 BLK 25 LOT 2-B</span>
+                </div>
+                <div class="text-muted-foreground mb-1 flex items-center">
+                    <i class="fa fa-phone"></i>
+                    <span id="location" class="ml-2">09264906925</span>
+                </div>
+            </div>
+        </div>
+
+            <!-- Detailed Information Section -->
+            <div class="detailed-info">
+                <section class="information">
+                    <h3 class="info-header">Information</h3>
+                    <p id="machine-description"></p>
+                    <p id="machine-price"></p>
+                    <p id="detailed-info"></p>
+                </section>
+                <section class="reviews">
+                    <h3>Reviews</h3>
+                    <div id="reviews-container" class="reviews-container">
+                        <!-- Example structure for a review -->
+                        <div class="review-card">
+                            <div class="review-header">
+                                <img src="path-to-profile-picture.jpg" alt="Reviewer" class="review-profile-picture">
+                                <div class="review-info">
+                                    <strong class="reviewer-name">Harvey Manaloto</strong>
+                                    <span class="review-date">10/23/2024</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p class="review-machine-title"><strong>Machine Title: </strong>Dji Mavic 3 Pro Drone</p>
+                                <div class="review-ratings">
+                                    <p>Machine Quality: 4/5</p>
+                                    <p>Operator Service: 5/5</p>
+                                    <p>Owner Service: 5/5</p>
+                                </div>
+                                <p class="review-comment">sample123</p>
+                            </div>
+                            <div class="review-images">
+                                <a href="path-to-image1.jpg" data-lightbox="review-images" data-title="Review Image 1">
+                                <a href="path-to-image2.jpg" data-lightbox="review-images" data-title="Review Image 2">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+                <section class="more-listings">
+                    <h3>More listings from <span id="owner-full-name"></span></h3>
+                    <button class="arrow left-arrow" id="left-arrow"></button>
+                    <div id="more-listings-container" class="more-listings-grid">
+                    </div>
+                    <button class="arrow right-arrow" id="right-arrow"></button>
+                </section>
+            </div>
+        </div>
+
+        <!-- Right Section: Calendar and Pricing -->
+        <div class="right-section">
+            <!-- Calendar Integration -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h3>August 2024</h3>
+                </div>
+                <div class="calendar-grid">
+                    <!-- Weekday labels -->
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                    <!-- Calendar dates are rendered dynamically -->
+                </div>
+                <div class="booking-details">
+                    <p>Start Date: <span id="start-date">Select rental period</span></p>
+                    <p>Est. End Date: <span id="end-date">Select rental period</span></p>
+                    <button class="send-request">Send request</button>
+                </div>
+            </div>
+
+            <!-- Pricing Section -->
+            <div class="pricing-container">
+                <h3>Rental Rates</h3>
+                <p>Rental rate provided by dealer.</p>
+                <div class="pricing-options">
+                    <div class="pricing-option">
+                        <p id="price-per-hectare">₱15</p>
+                        <span>Per Hectare</span>
+                    </div>
+                    <div class="pricing-option">
+                        <p id="percentage-rice-grains">70%</p>
+                        <span>Per rice grains</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="/Shared/HTML/Home.html">Cruzian Team</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Floating Button -->
+<a href="#calendar-container" class="floating-btn">
+    <i class="fa fa-calendar" aria-hidden="true"></i> See available dates
+</a>
+
+    <script src="OMachine_detail.js"></script>
+</body>
+</html>

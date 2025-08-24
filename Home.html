@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Cruzian-Home</title>
+</head>
+<body>
+    <div class="home">
+        <div class="nav-bar">
+            <div class="left-side">
+                <div class="logo">
+                    <img src="/Assets/image/Cruzian.png" alt="Cruzian-Logo" title="Cruzian">
+                </div>
+            </div>
+            <div class="right-side">
+                <ul id="nav-links">
+                    <li><a href="home.html"><i class="fa fa-fw fa-home"></i>Home</a></li>
+                    <li><a href="#about-GreenTrust"><i class="fa fa-fw fa-users"></i>About Us</a></li>
+                    <li><a href="/Renter/machine_list.html"><i class="fa fa-cogs" aria-hidden="true"></i>Rent machinery</a></li>
+                    <li><a href="#contact-icons"><i class="fa fa-fw fa-envelope"></i>Contact Us</a></li>
+                    <!-- Mobile Logout Button -->
+                    <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+            </div>
+            <div class="user-info" id="user-info">
+                <span id="user-name"></span>
+                <a href="#" id="logout">
+                    <i class="fa fa-sign-out"></i> Logout
+                </a>
+                
+            </div>
+            <div class="auth-links">
+                <a href="login.html" id="login" class="auth-link">
+                    <i class="fa fa-sign-in"></i> Login
+                </a>
+                <a href="register.html" id="register" class="auth-link">
+                    <i class="fa fa-user-plus"></i> Register
+                </a>
+            </div>
+            <div class="menu-icon">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    
+        
+
+    <div id="about-GreenTrust" class="about-GreenTrust">
+        <div class="about">
+            <div class="image">
+                <img src="/Assets/image/Abawt.jpg" alt="About GreenTrust">
+            </div>
+            <div class="about-para">
+                <p>
+                    At <span>Cruzian Multi-Purpose Cooperative</span>,
+                    we strive to empower local farmers and agrarian reform beneficiaries through innovative solutions and diverse services. 
+                    Established in 1990 with just ₱1,000 and 36 members, we have grown into a trusted organization 
+                    with over 90 farmer-members and ₱43 million in assets. Our services include production loans, agricultural trading, 
+                    rice milling, and more. We are committed to fostering sustainable growth for our members and communities, 
+                    contributing to national food security, and building a brighter future for Filipino farmers.
+                </p>
+            </div>            
+        </div>
+    </div>
+
+    
+    <!-- How It Works -->
+<div class="sub-hero-image" id="sub-hero-image"></div>
+
+<!-- Sub-Home Section -->
+<div class="sub-home">
+    <h2 class="section-title">How It Works</h2>
+    <div class="HIW">
+        <!-- Step 1: Register -->
+        <div class="card">
+            <div id="register-animation" class="lottie-container"></div>
+            <h3>Register</h3>
+            <p>Register as an <b>Owner</b> or <b>Renter</b>: Sign up as an Owner to list machinery or as a Renter to browse and reserve machines.</p>
+        </div>
+        <!-- Step 2: Browse and Reserve -->
+        <div class="card">
+            <div id="browse-animation" class="lottie-container"></div>
+            <h3>Browse and Reserve</h3>
+            <p>Renters can explore machinery listings, select rental dates, and send reservation requests for approval.</p>
+        </div>
+        <!-- Step 3: Reservation Confirmation -->
+        <div class="card">
+            <div id="confirmation-animation" class="lottie-container"></div>
+            <h3>Reservation Confirmation</h3>
+            <p>After approval, the machine is booked, and the Owner coordinates delivery with an operator to assist during the rental.</p>
+        </div>
+        <!-- Step 4: Review the Machinery -->
+        <div class="card">
+            <div id="review-animation" class="lottie-container"></div>
+            <h3>Review the Machinery</h3>
+            <p>After the rental period, Renters can review the machinery they used, helping maintain quality standards and providing feedback.</p>
+        </div>
+    </div>
+</div>
+
+<div id="available-machinery">
+    <h2 class="section-title">Available Machinery</h2>
+    <!-- Machine card container -->
+    <div id="machine-card-container"></div>
+    <!-- Pagination controls -->
+    <div id="pagination-controls">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="page-info">Page 1 of X</span>
+        <button id="next-page">Next</button>
+    </div>
+</div>
+
+
+         <!-- Footer Section -->
+<section class="footer">
+    <div class="left-side-footer">
+        <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+    </div>
+    <div class="right-side-footer">
+        <p>Web Design and Development by <span class="footer-team">Cruzian Team</span></p>
+        <div id="contact-icons" class="contact-icons">
+            <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+            <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+            <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</section>
+        </div>
+    </div>
+    <script src="Home.js"></script>
+    <script src="/lib/lottie.min.js"></script>
+</body>
+</html>

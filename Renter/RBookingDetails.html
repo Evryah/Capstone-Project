@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Renter/RBookingDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Booking Details</title>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="nav-bar">
+    <div class="left-side">
+        <div class="logo">
+            <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+        </div>
+    </div>
+    <div class="right-side">
+        <ul id="nav-links">
+            <li><a href="machine_list.html"><i class="fa fa-fw fa-search"></i> Search</a></li>
+            <li><a href="Renter_Reservation.html"><i class="fa fa-fw fa-calendar"></i> Reservations</a></li>
+            <li><a href="EditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+            <!-- Mobile Logout Button -->
+            <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+        </ul>
+    </div>
+    <div class="user-info">
+        <div class="notifications">
+            <i class="fa fa-bell"></i>
+            <span class="notification-count">2</span>
+        </div>
+        <a href="ViewProfile.html" id="user-profile-link">
+            <i class="fa fa-user"></i>
+            <span id="user-name">Alden</span>
+        </a>
+        <!-- Desktop Logout Button -->
+        <a href="#" id="logout">
+            <i class="fa fa-sign-out"></i> Logout
+        </a>
+    </div>
+    <!-- Hamburger Menu Icon -->
+    <div class="menu-icon">
+        <i class="fa fa-bars"></i>
+    </div>
+</div>
+
+    <!-- Main Wrapper to Center Content -->
+    <div class="main-wrapper">
+        <div class="main-content">
+            
+            <!-- Booking Section -->
+            <div class="booking-section">
+                <!-- Booking Details -->
+                <div class="booking-details">
+                    <div class="header">
+                        <h2>Reservation Details</h2>
+                        <span id="status" class="status pending">Pending</span>  <!-- This class will change dynamically -->
+
+                    </div>
+                    <table class="booking-info">
+                        <tr>
+                            <th>Date</th>
+                            <th>Booking ID</th>
+                            <th>Category</th>
+                            <th>Equipment Name</th>
+                        </tr>
+                        <tr>
+                            <td id="created-date">Loading...</td> 
+                            <td id="booking-id">Loading...</td>
+                            <td id="machine-category">Loading...</td>
+                            <td id="machine-title">Loading...</td>
+                        </tr>
+                    </table>
+                    <table class="owner-info">
+                        <tr>
+                            <th>Owner Name</th>
+                            <th>Contact No.</th>
+                            <th>Address</th>
+                        </tr>
+                        <tr>
+                            <td id="owner-name">Loading...</td>
+                            <td id="owner-phone">+Loading...</td>
+                            <td id="owner-address">Loading...</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Rent Details -->
+                <div class="rent-details">
+                    <div class="renter-info">
+                        <div class="renter-header">
+                            <h4>Your information</h4>
+                        </div>
+                        <div class="renter-details">
+                            <p><strong id="renter-name">Renter Full Name</strong></p>
+                            <p id="renter-address">Renter Address</p>
+                            <p id="renter-phone">Renter Phone Number</p>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <th>Start</th>
+                            <td id="start-date">Loading...</td>
+                        </tr>
+                        <tr>
+                            <th>End</th>
+                            <td id="end-date">Loading...</td>
+                        </tr>
+                        <tr>
+                            <th>No. of days</th>
+                            <td id="num-days">Loading...</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <button id="review-button" class="review" style="display:none;" onclick="window.location.href='review.html?bookingId=BOOKING_ID'">Leave a Review</button>
+
+           <!-- Buttons for cancelling and sending request -->
+           <div class="action-buttons">
+            <button id="cancel-button" class="btn cancel">Cancel</button>
+            <button id="confirm-button" class="btn send-request">Send Request</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cancel Confirmation Modal: Move outside of specific sections -->
+<div id="cancelModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Cancel Booking</h2>
+        <p>Are you sure you want to cancel this booking?</p>
+        <div class="modal-actions">
+            <button id="confirmCancel" class="btn confirm">Yes, Cancel</button>
+            <button id="closeModalBtn" class="btn cancel">No, Keep Booking</button>
+        </div>
+    </div>
+</div>
+<!-- Toast Notification -->
+<div id="toast" class="toast">Booking successfully canceled</div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian.</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="home.html">Cruzian</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="/Renter/RBookingDetails.js"></script>
+</body>
+</html>

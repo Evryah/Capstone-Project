@@ -1,0 +1,439 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;  /* Ensure the body takes the full height of the screen */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 85px;
+    background-color: white;
+    justify-content: space-between;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .logo {
+    height: 100%;
+}
+
+.nav-bar .logo img {
+    height: 100%;
+}
+
+.nav-bar #nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-bar #nav-links li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#nav-links li {
+    position: relative;
+}
+
+#nav-links li a::before {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: #036e3a;
+    position: absolute;
+    bottom: -10px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    left: 0.4%;
+}
+
+#nav-links .activate a::before,
+#nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+    right: 50px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #444;
+}
+
+.user-info #user-profile-link i.fa-user {
+    color: black; /* Set the color to black */
+}
+
+/* Filters Section Styles */
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px; /* Add spacing between filters */
+    margin-bottom: 15px; /* Add space below filters */
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #444;
+}
+
+.filters label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.filters select {
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* White background */
+    color: #036e3a; /* Dark green text */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filters select:hover {
+    background-color: #f0f0f0; /* Light gray hover */
+    border-color: #024f28; /* Dark green border on hover */
+}
+
+.filters select:focus {
+    outline: none; /* Remove default outline */
+    border-color: #024f28; /* Highlighted border */
+    box-shadow: 0 0 5px rgba(2, 79, 40, 0.5); /* Subtle green glow */
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    min-width: 70px;
+}
+
+.badge-owner {
+    background-color: #28a745; /* Green for Owner */
+}
+
+.badge-renter {
+    background-color: #007bff; /* Blue for Renter */
+}
+
+.badge-admin {
+    background-color: #ffc107; /* Gold */
+}
+
+/* Style for the "View Details" button */
+.view-profile-link {
+    background-color: #20c997; /* Teal */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    padding: 8px 12px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Button-like appearance */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for "View Details" button */
+.view-profile-link:hover {
+    background-color: #17a58c; /* Darker teal */
+    transform: scale(1.05); /* Slight zoom effect */
+    text-decoration: none; /* Keep underline removed */
+}
+
+.badge-rejected {
+    background-color: #dc3545; /* Red for rejected */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Style for logout link */
+#logout {
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+#logout {
+    display: none;
+}
+
+#logout i {
+    font-size: 1.2rem;
+}
+
+#logout:hover {
+    color: #036e3a;
+    background-color: #f0f0f0;
+    border-color: #036e3a;
+}
+
+/* Notification styles */
+.notifications {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications .fa-bell {
+    font-size: 1.5rem;
+    color: #444;
+    margin-right: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: block; /* Ensure it is visible */
+    position: absolute;
+    right: 10px; /* Adjust to your preference */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    color: #444; /* Ensure it's visible with appropriate color */
+}
+
+
+.user-management {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+#roleFilter {
+    margin: 10px 0;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#userTable th, #userTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#userTable th {
+    background-color: #036e3a;
+    color: #fff;
+}
+
+#userTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#userTable button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    color: white;
+    background-color: #036e3a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#userTable button:hover {
+    background-color: #024f28;
+}
+/* Approve and Reject Button Styles */
+#userTable .approve {
+    background-color: #28a745; /* Green for approve */
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#userTable .approve:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+#userTable .reject {
+    background-color: #dc3545; /* Red for reject */
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#userTable .reject:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Delete Button Styles */
+#userTable .delete {
+    background-color: #ffc107; /* Yellow for delete */
+    border: none;
+    color: #212529; /* Dark text for contrast */
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#userTable .delete:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+/* Dropdown Styles */
+#userTable select {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #036e3a; /* Dark green text */
+    background-color: #fff; /* White background */
+    border: 2px solid #036e3a; /* Green border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover and Focus States */
+#userTable select:hover {
+    background-color: #f5f5f5; /* Slight gray for hover */
+}
+
+#userTable select:focus {
+    outline: none; /* Remove default outline */
+    border-color: #024f28; /* Darker green border on focus */
+    box-shadow: 0 0 5px rgba(2, 79, 40, 0.5); /* Add green glow */
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: auto; /* Push the footer to the bottom when the content is short */
+}
+
+.footer .left-side-footer, .footer .right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.footer .left-side-footer {
+    flex: 1;
+}
+
+.footer .right-side-footer {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-icons {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icons a {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.contact-icons a:hover {
+    color: #f5f5f5;
+}
+@media (min-width: 769px) {
+    .mobile-logout {
+        display: none;
+    }
+
+    /* Show the desktop logout button */
+    .user-info #logout {
+        display: inline;
+    }
+}@media (max-width: 768px) {
+    .mobile-logout {
+        display: block;
+    }
+
+    /* Hide the desktop logout button in mobile view */
+    .user-info #logout {
+        display: none;
+    }
+}

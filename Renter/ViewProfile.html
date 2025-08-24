@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Renter/ViewProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <title>User Profile</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="machine_list.html"><i class="fa fa-fw fa-search"></i> Search</a></li>
+                <li><a href="Renter_Reservation.html"><i class="fa fa-fw fa-calendar"></i> Reservations</a></li>
+                <li><a href="EditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <a href="ViewProfile.html" id="user-profile-link">
+                <i class="fa fa-user"></i>
+                <span id="user-name">Alden</span>
+            </a>
+            
+            <a href="#" id="logout">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- Profile Container for User Details -->
+    <div class="profile-container">
+        <!-- User details will be dynamically injected here -->
+    </div>
+
+    <!-- Tabs for Listings and Reviews -->
+    <div class="machines-section">
+        <div class="tab-header">
+            <h3 class="tab-title active" id="listings-tab">User's Listings</h3>
+            <h3 class="tab-title" id="reviews-tab">User Reviews</h3>
+        </div>
+        <div id="user-listings-section" class="tab-content active">
+            <div id="machine-card-container" class="machine-card-container"></div> <!-- Added element -->
+        </div>
+        <div id="user-reviews-section" class="tab-content">
+            <div class="filter-container">
+                <label for="rating-filter">Filter by Rating:</label>
+                <div id="rating-filter">
+                    <i class="fa fa-star filter-star" data-rating="1"></i>
+                    <i class="fa fa-star filter-star" data-rating="2"></i>
+                    <i class="fa fa-star filter-star" data-rating="3"></i>
+                    <i class="fa fa-star filter-star" data-rating="4"></i>
+                    <i class="fa fa-star filter-star" data-rating="5"></i>
+                </div>
+            </div>
+            <div id="review-container" class="review-container">
+                <!-- User reviews will be dynamically injected here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="home.html">Cruzian Team</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="/Renter/ViewProfile.js"></script>
+</body>
+</html>

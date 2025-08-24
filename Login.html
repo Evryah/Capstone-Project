@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="image-side"></div>
+        <div class="content-side">
+            <div class="login-heading">
+                <img src="/Assets/image/Cruzian.png" alt="Cruzian" title="Cruzian">
+            </div>
+            <p id="sub-heading-1">Login</p>
+            <p id="sub-heading-2">Log in to your account</p>
+            <p id="sub-heading-3">Thank you for getting back to Cruzian, let's access our best recommendations for you</p>
+            <div class="form">
+                <form id="loginForm">
+                    <div class="login-type">
+                        <label for="loginType">Login as:</label>
+                        <input type="radio" id="owner" name="loginType" value="Owner" required>
+                        <label for="owner">Owner</label>
+                        <input type="radio" id="renter" name="loginType" value="Renter" required>
+                        <label for="renter">Renter</label>
+                    </div>
+                    <label for="username">Username or Phone Number</label><br>
+                    <input type="text" id="username" name="UserName" class="username" placeholder="Enter Username or Phone Number" required>
+                    <div id="usernameError" class="error">Username or Phone Number is required.</div>
+                    
+                    <label for="Password">Password</label><br>
+                    <div class="password-container">
+                        <input type="password" id="Password" name="Password" class="Password" placeholder="Enter Password" required>
+                        <i id="togglePassword" class="fas fa-eye toggle-password"></i> <!-- Eye Icon for toggling -->
+                    </div>
+                    <div id="passwordError" class="error">Password is required.</div>
+                    
+                    <div class="rememberme">
+                        <div class="rem">
+                            <input type="checkbox" id="remember-me-check">
+                            <label for="remember-me" id="rem">Remember me</label>
+                        </div>
+                        <p id="reset-password">Reset Password?</p>
+                    </div>
+
+                    <div id="error" class="error"></div>
+    
+                    <button type="submit" class="submit">Sign In</button>
+                </form>
+            </div>
+
+            <div id="toast" class="toast">Login Successful!</div>
+            
+            <p id="footer">Don't have an account yet? <a href="Register.html">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Modal for Pending Account -->
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <lottie-player 
+                src="/Assets/HIW/Tractor.json"
+                background="transparent" 
+                speed="1" 
+                style="width: 150px; height: 150px;" 
+                loop autoplay>
+            </lottie-player>
+            <h3>Account Pending Approval</h3>
+            "Your account is currently pending approval. Please wait for approval from Cruzian or contact Cruzian for assistance."
+            <button onclick="closeModal()"></button>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="login.js"></script>
+    <script src="/lib/lottie-player.js"></script>
+</body>
+</html>

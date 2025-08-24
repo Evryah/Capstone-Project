@@ -1,0 +1,705 @@
+/* General styles for the page */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.machine-listing {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex-grow: 1;
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 85px;
+    background-color: white;
+    justify-content: space-between;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .logo {
+    height: 100%;
+}
+
+.nav-bar .logo img {
+    height: 100%;
+}
+
+.nav-bar #nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-bar #nav-links li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#nav-links li {
+    position: relative;
+}
+
+#nav-links li a::before {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: #036e3a;
+    position: absolute;
+    bottom: -10px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    left: 0.4%;
+}
+
+#nav-links .activate a::before,
+#nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+    right: 50px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #444;
+}
+
+.user-info #user-profile-link i.fa-user {
+    color: black; /* Set the color to black */
+}
+
+/* Style for logout link */
+#logout {
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+#logout i {
+    font-size: 1.2rem;
+}
+
+#logout:hover {
+    color: #036e3a;
+    background-color: #f0f0f0;
+    border-color: #036e3a;
+}
+
+/* Notification styles */
+.notifications {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications .fa-bell {
+    font-size: 1.5rem;
+    color: #444;
+    margin-right: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+#logout {
+    display: none;
+}
+/* Mobile Menu Styles */
+.menu-icon {
+    display: block; /* Ensure it is visible */
+    position: absolute;
+    right: 10px; /* Adjust to your preference */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    color: #444; /* Ensure it's visible with appropriate color */
+}
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding-top: 120px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.main-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.listing-form {
+    background: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-step {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.form-step h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #036e3a;
+}
+
+.form-step p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-step label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #036e3a;
+    display: block;
+}
+
+.form-step input[type="text"],
+.form-step input[type="number"],
+.form-step textarea,
+.form-step select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.form-step input[type="text"]:focus,
+.form-step input[type="number"]:focus,
+.form-step textarea:focus,
+.form-step select:focus {
+    border-color: #036e3a;
+}
+
+.form-step textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.image-upload {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.upload-box {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    background-image: url('/Assets/image/camera.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.upload-box input[type="file"] {
+    display: none;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: none;
+}
+
+.upload-box.has-image {
+    background-image: none;
+}
+
+.upload-box.has-image img {
+    display: block;
+}
+
+/* Style for the remove image 'X' mark */
+.remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+/* Show the 'X' mark only when an image is displayed */
+.upload-box.has-image .remove-image {
+    display: block;
+}
+
+#publish-listing {
+    background-color: #036e3a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#publish-listing:hover {
+    background-color: #024d2a;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.left-side-footer,
+.right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.left-side-footer p,
+.right-side-footer p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.right-side-footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 15px;
+}
+
+.right-side-footer a:hover {
+    cursor: pointer;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-icons a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+#update-message {
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.price-inputs {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.price-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px; /* Constrain the maximum width of inputs */
+    min-width: 150px;
+}
+
+.price-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #036e3a;
+}
+
+.price-input input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.price-input input:focus {
+    border-color: #036e3a;
+}
+
+.advanced-settings .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.advanced-settings input[type="number"] {
+    width: 100%;
+    max-width: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.advanced-settings label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #036e3a;
+    display: block;
+}
+
+/* Toast Notification Styles */
+.toast {
+    visibility: hidden;
+    width: auto;
+    max-width: 90%;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15%;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+/* Calendar CSS */
+.calendar-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
+    min-width: 320px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header h3 {
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: #036e3a;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.calendar-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar-day:hover {
+    background-color: #036e3a;
+    color: #fff;
+}
+
+.calendar-day.selected {
+    background-color: #02492a;
+    color: #fff;
+}
+
+.calendar-day.range {
+    background-color: #b3d9b3;
+    color: #333;
+}
+
+.calendar-day.blocked {
+    background-color: transparent; /* Keep background clear */
+    color: #333; /* Default text color */
+    cursor: not-allowed;
+    text-decoration: line-through; /* Apply a line-through effect */
+}
+
+.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.calendar-navigation .arrow-button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.calendar-navigation .arrow-button:hover {
+    color: #036e3a;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #02492a;
+}
+@media (min-width: 769px) {
+    .mobile-logout {
+        display: none;
+    }
+
+    /* Show the desktop logout button */
+    .user-info #logout {
+        display: inline;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-logout {
+        display: block;
+    }
+
+    /* Hide the desktop logout button in mobile view */
+    .user-info #logout {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .price-inputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .price-input {
+        max-width: 100%; /* Remove the constraint for full width in small screens */
+    }
+
+    .price-input input {
+        max-width: 100%; /* Make input stretch to 100% of its container */
+    }
+
+    .image-upload {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust for smaller screens */
+    }
+
+    .nav-bar #nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column; /* Stack items vertically in mobile view */
+        position: absolute;
+        right: 0;
+        top: 85px; /* Positioned just below the nav bar */
+        background-color: white;
+        width: 200px;
+        z-index: 1000; /* Ensure dropdown is on top */
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    }
+
+    .nav-bar #nav-links.active {
+        display: flex; /* Show links when active class is toggled */
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 60px; /* Adjusted for mobile view */
+        z-index: 1000;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .user-info {
+        position: absolute;
+        top: 50%;
+        right: 90px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    #logout {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+}
+/* Responsive layout adjustment */
+@media only screen and (max-width: 768px) {
+    .machine-listing {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        padding: 0;
+    }
+
+    .calendar-container,
+    .pricing-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .pricing-options {
+        flex-direction: column;
+    }
+
+    .pricing-option {
+        width: 100%;
+        margin-bottom: 10px;
+    
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        display: none;
+    }
+}
+
+/* Style for the Save Button */
+.save-button {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Adds some spacing above the button */
+}
+
+.save-button:hover {
+    background-color: #02492a;
+}

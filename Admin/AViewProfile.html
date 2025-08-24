@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="AViewProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/lib/toastify.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script src="/lib/toastify.min.js"></script>
+    <title>View Profile</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="My_Machine.html"><i class="fa fa-fw fa-tractor"></i>My Machines</a></li>
+                <li><a href="Machine_Listing.html"><i class="fa fa-fw fa-clipboard-list" aria-hidden="true"></i>List a Machine</a></li>
+                <li><a href="Owner_Reservation.html"><i class="fa fa-fw fa-calendar"></i>Reservations</a></li>
+                <li><a href="OEditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                <!-- Mobile Logout Button -->
+                <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <a href="ViewProfile.html" id="user-profile-link">
+                <i class="fa fa-user"></i>
+                <span id="user-name">Alden</span>
+            </a>
+            <!-- Desktop Logout Button -->
+            <a href="#" id="logout">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    <section class="profile-details">
+        <h2>Edit Profile</h2>
+
+        <div class="field-container">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" value="Harvey" readonly>
+        </div>
+        <div class="field-container">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" value="Manaloto" readonly>
+        </div>
+
+        <div class="field-container">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" value="01234567891">
+        </div>
+        <div class="field-container">
+            <label for="barangay">Barangay:</label>
+            <select id="barangay">
+                <option value="Ayala">Ayala</option>
+                <option value="Balitucan">Balitucan</option>
+                <option value="Bucanan">Bucanan</option>
+                <option value="Camias">Camias</option>
+                <option value="Dolores">Dolores</option>
+                <option value="Duat">Duat</option>
+                <option value="Escaler">Escaler</option>
+                <option value="La Paz">La Paz</option>
+                <option value="Navaling">Navaling</option>
+                <option value="San Agustin">San Agustin</option>
+                <option value="San Antonio">San Antonio</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="San Ildefonso">San Ildefonso</option>
+                <option value="San Isidro">San Isidro</option>
+                <option value="San Jose">San Jose</option>
+                <option value="San Miguel">San Miguel</option>
+                <option value="San Nicolas I">San Nicolas I</option>
+                <option value="San Nicolas II">San Nicolas II</option>
+                <option value="San Pablo">San Pablo</option>
+                <option value="San Pedro I">San Pedro I</option>
+                <option value="San Pedro II">San Pedro II</option>
+                <option value="San Roque">San Roque</option>
+                <option value="San Vicente">San Vicente</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Lucia">Santa Lucia</option>
+                <option value="Santo Niño">Santo Niño</option>
+                <option value="Turu">Turu</option>
+            </select>
+        </div>
+
+        <div class="field-container">
+            <label for="address">Address:</label>
+            <input type="text" id="address" value="Phase 5 BLK 43, Lot 56-C">
+        </div>
+        <div class="field-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" value="harvey_manaloto" readonly>
+        </div>
+
+        <div class="field-container">
+            <label for="password">New Password:</label>
+            <div class="password-input-container">
+                <input type="password" id="password" placeholder="Enter new password">
+                <i class="fa fa-eye toggle-password" id="toggleNewPassword"></i>
+            </div>
+        </div>
+        
+        <div class="field-container" id="confirm-password-container" style="display: none;">
+            <label for="confirmPassword">Confirm New Password:</label>
+            <div class="password-input-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                <i class="fa fa-eye toggle-password" id="toggleConfirmPassword"></i>
+            </div>
+            <span id="password-error" class="error-message" style="display: none;">Passwords do not match</span>
+        </div>
+        
+
+        <div class="field-container">
+            <label for="idType">ID Type:</label>
+            <select id="idType" disabled>
+                <option value="Government-Issued ID">Government-Issued ID</option>
+                <option value="Barangay Residence ID">Barangay Residence ID</option>
+                <option value="Cruzian ID">Cruzian ID</option>
+            </select>
+        </div>
+        
+
+        <div class="field-container">
+            <label for="idDocument">ID Document:</label>
+            <input type="file" id="idDocument" accept="image/*" disabled>
+            <span id="idDocumentName"></span> <!-- Display fetched file name here -->
+            <img id="idDocumentImage" src="" alt="ID Document Preview" 
+                 style="display: none; width: 100%; margin-top: 10px; border-radius: 8px;">
+        </div>
+
+        <button class="update-button">Update Profile</button>
+    </section>
+    
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="home.html">Cruzian Team</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="AViewProfile.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Cruzian - User Management</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="Cruzian Logo" title="Cruzian">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="/Owner/My_Machine.html"><i class="fa fa-fw fa-tractor"></i>My Machines</a></li>
+                <li><a href="/Owner/Machine_Listing.html"><i class="fa fa-fw fa-clipboard-list"></i>List a Machine</a></li>
+                <li><a href="/Owner/Owner_Reservation.html"><i class="fa fa-fw fa-calendar"></i>Reservations</a></li>
+                <li><a href="/Owner/OEditProfile.html"><i class="fas fa-edit"></i>Edit Profile</a></li>
+                <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+            </ul>
+        </div>
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <a href="OwnerViewProfile.html" id="user-profile-link">
+                <i class="fa fa-user"></i>
+                <span id="user-name">User</span>
+            </a>
+            <a href="#" id="logout"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- User Management Section -->
+    <section class="user-management">
+        <h2>Registered Users</h2>
+        <div class="filters">
+            <label for="roleFilter">Filter by Role:</label>
+            <select id="roleFilter" onchange="filterUsersByRole()">
+                <option value="all">All</option>
+                <option value="Admin">Admins</option>
+                <option value="Owner">Owners</option>
+                <option value="Renter">Renters</option>
+            </select>
+
+            <label for="statusFilter">Filter by Status:</label>
+            <select id="statusFilter" onchange="filterUsersByRoleAndStatus()">
+                <option value="all">All</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+                <option value="Pending">Pending</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+        <table border="1" id="userTable">
+            <thead>
+                <tr>
+                    <th>Registration Date</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Contact Info</th>
+                    <th>Address</th>
+                    <th>Referred By</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Rows will be dynamically generated -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="/Home.html">Cruzian Team</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@cruzian.com"><i class="fa fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="Admin.js"></script>
+</body>
+</html>

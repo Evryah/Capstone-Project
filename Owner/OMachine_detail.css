@@ -1,0 +1,1076 @@
+/* Base styles for body and HTML */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 85px;
+    background-color: white;
+    justify-content: space-between;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .logo {
+    height: 100%;
+}
+
+.nav-bar .logo img {
+    height: 100%;
+}
+
+.nav-bar #nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-bar #nav-links li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#nav-links li {
+    position: relative;
+}
+
+#nav-links li a::before {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: #036e3a;
+    position: absolute;
+    bottom: -10px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    left: 0.4%;
+}
+
+#nav-links .activate a::before,
+#nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+    right: 50px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Style for logout link */
+#logout {
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+#logout i {
+    font-size: 1.2rem;
+}
+
+#logout:hover {
+    color: #036e3a;
+    background-color: #f0f0f0;
+    border-color: #036e3a;
+}
+#mobile-logout {
+    display: none;
+}
+
+/* Notification styles */
+.notifications {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications .fa-bell {
+    font-size: 1.5rem;
+    color: #444;
+    margin-right: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: none; /* Ensure it is visible */
+    position: absolute;
+    right: 10px; /* Adjust to your preference */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    color: #444; /* Ensure it's visible with appropriate color */
+}
+
+/* Header and Navigation styles */
+.large-bold-title {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.machine-category {
+    font-size: 1.25rem;
+    color: #555555;
+    margin-bottom: 5px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-header {
+    font-size: 1.5rem;
+    color: #696666;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    word-spacing: 0.2em;
+}
+
+.reviews h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    word-spacing: 0.2em;
+}
+/* Machine detail container */
+.machine-detail-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 120px 20px 20px 20px;
+    background-color: #fff;
+    flex: 1;
+    justify-content: center;
+}
+
+.left-section {
+    width: 60%;
+    max-width: 800px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-section {
+    width: 40%;
+    max-width: 400px;
+    padding-left: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: -80px;
+}
+
+/* Owner profile card */
+.owner-profile-card {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.image-gallery {
+    width: 80%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.thumbnail-images img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.thumbnail-images img:hover {
+    transform: scale(1.1);
+}
+
+.machine-info {
+    width: 100%;
+    padding-left: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.machine-info h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.machine-info p {
+    margin: 10px 0;
+    color: #555;
+    word-spacing: 0.2em;
+}
+.information {
+    max-width: 800px;           /* Limit the max width of the container */
+    margin: 0 auto;             /* Center the container */
+    padding: 10px;              /* Add padding for readability */
+    word-wrap: break-word;      /* Prevent long words from overflowing */
+}
+
+/* Additional information section */
+.additional-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.owner-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    word-spacing: 0.2em;
+}
+
+.detailed-info {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.information, .reviews {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.reviews .review {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Pricing Section */
+.pricing-container {
+    padding: 5px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.pricing-container h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #036e3a;
+    margin-bottom: 10px;
+}
+
+.pricing-container p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.pricing-options {
+    display: flex;
+    justify-content: center; /* Center the boxes horizontally */
+    gap: 20px; /* Adjust gap between the boxes */
+    flex-wrap: nowrap; /* Ensure boxes stay in one row */
+    width: 100%; /* Full width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.pricing-option {
+    text-align: center;
+    padding: 10px 15px; /* Adjust padding for smaller boxes */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 120px; /* Set a compact width */
+    height: 80px; /* Set a compact height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-option p {
+    font-size: 1.2rem; /* Adjust font size for a more compact look */
+    font-weight: bold;
+    margin: 0;
+    color: #036e3a;
+}
+
+.pricing-option span {
+    font-size: 0.9rem; /* Adjust text size below the price */
+    color: #555;
+}
+
+/* Calendar Styling */
+.blocked {
+    background-color: #ccc;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.weekday {
+    font-weight: bold;
+    color: #036e3a; /* Green color */
+    padding: 10px;
+    text-align: center;
+    background-color: transparent; /* Set background to transparent */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Calendar Container */
+.calendar-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-top: 40px;
+    width: 100%; /* Ensure full width */
+    max-width: 360px; /* Maximum width for proper display */
+    text-align: center;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Adjust the calendar grid to fit the container */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for 7 days */
+    gap: 5px; /* Adjust gap for better spacing */
+    margin-bottom: 20px;
+}
+
+/* Calendar days and elements */
+.calendar-grid div {
+    padding: 10px;
+    background-color: transparent; /* Transparent background for clean look */
+    border-radius: 5px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Adjust for better layout */
+.calendar-day, .weekday {
+    min-width: 40px;
+    max-width: 50px;
+    min-height: 40px;
+    max-height: 50px;
+    box-sizing: border-box;
+}
+
+.calendar-day {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-day:hover {
+    background-color: #036e3a;
+    color: #fff;
+}
+
+.calendar-day.selected {
+    background-color: #02492a;
+    color: #fff;
+}
+
+.calendar-day.range {
+    background-color: #b3d9b3;
+    color: #000;
+}
+
+.calendar-day.blocked {
+    background-color: #f5f5f5;
+    color: #b0b0b0;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    opacity: 0.6;
+    pointer-events: none;  /* Prevent clicking */
+}
+
+
+.calendar-day.blocked:hover {
+    background-color: transparent;
+    color: #333;
+    cursor: not-allowed;
+}
+
+.calendar-day.past {
+    color: #b0b0b0;
+    filter: blur(0.5px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.calendar-day.past:hover {
+    cursor: default;
+    background-color: transparent;
+}
+
+.empty {
+    background-color: transparent;
+    cursor: default;
+}
+/* Month Header Styling */
+.calendar-header h3 {
+    font-size: 1.8rem; /* Increase font size for prominence */
+    color: #036e3a; /* Dark green color for consistency */
+    font-weight: bold; /* Make it bold to stand out */
+    margin: 0;
+    padding: 10px 0; /* Add some padding for spacing */
+    text-align: center; /* Center the text */
+}
+
+/* Add space between the header and the rest of the calendar */
+.calendar-header {
+    margin-bottom: 20px; /* Adjust the margin below the month header */
+}
+
+/* Style the navigation arrows around the month */
+.calendar-navigation .arrow-button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    color: #036e3a; /* Match the arrow color with the month header */
+    font-size: 1.5rem; /* Slightly larger size for clarity */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.calendar-navigation .arrow-button:hover {
+    color: #02492a; /* Darker green when hovered */
+}
+
+/* Navigation arrow buttons */
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%; /* Full width for buttons */
+}
+
+/* More Listings Section */
+.more-listings {
+    position: relative;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.more-listings h3 {
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.more-listings-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Machine card styles */
+.machine-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px;
+    width: 200px; /* Paliitin ang lapad ng card */
+    height: 300px; /* Paliitin ang height ng card */
+    text-align: center;
+    padding: 10px 5px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.machine-card .card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.machine-card img {
+    width: 100%; /* Image width stays full */
+    height: 140px; /* Paliitin ang image height para magkasya sa maliit na card */
+    margin-bottom: 10px;
+}
+
+.machine-card .rating, .machine-card .price, .machine-card .name, .machine-card .description {
+    margin: 10px 0;
+}
+
+.machine-card .rating i {
+    color: gold;
+}
+
+.machine-card .price {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.machine-card .name {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.machine-card .description {
+    color: #666;
+    padding: 0 10px;
+}
+
+/* Arrow Button Styles for More Listings */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    transform-origin: center;
+    padding: 5px;
+}
+
+.left-arrow::before {
+    transform: rotate(135deg);
+}
+
+.right-arrow::before {
+    transform: rotate(-45deg);
+}
+
+.left-arrow {
+    left: -15px;
+}
+
+.right-arrow {
+    right: -15px;
+}
+
+.arrow:hover {
+    opacity: 0.8;
+}
+
+/* Booking details */
+.booking-details p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.booking-details .price {
+    font-size: 1.25rem;
+    color: #036e3a;
+    font-weight: bold;
+}
+
+.send-request {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.send-request:hover {
+    background-color: #02492a;
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: auto;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .left-side-footer, .footer .right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.footer .left-side-footer {
+    flex: 1;
+}
+
+.footer .right-side-footer {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-icons {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icons a {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+/* Style for the "See available dates" button */
+.floating-btn {
+    position: fixed;
+    bottom: 300px; /* Move the button 80px from the bottom */
+    right: 20px;
+    background-color: #036e3a; /* Dark green */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover state */
+.floating-btn:hover {
+    background-color: #02492a; /* Darker green for hover */
+    transform: translateY(-3px); /* Slight upward movement for interaction */
+    cursor: pointer;
+}
+
+/* Focus state for accessibility */
+.floating-btn:focus {
+    outline: 2px solid #FF6B6B; /* Focus ring for accessibility */
+    outline-offset: 4px;
+}
+
+/* Add an active state for click feedback */
+.floating-btn:active {
+    background-color: #02492a;
+    transform: translateY(1px); /* Slight downward press effect */
+}
+
+/* Reviews container and individual card styling */
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #75886d;
+}
+
+.review-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.review-content {
+    margin-top: 10px;
+}
+
+.review-ratings {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.review-ratings p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.review-comment {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+    line-height: 1.5;
+}
+.fa-star {
+    color: #ccc; /* Default to empty stars */
+}
+
+.fa-star.checked {
+    color: #ffcc00; /* Gold color for full stars */
+}
+
+/* Thumbnails styling */
+.review-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.review-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.pagination-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination-container button {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.pagination-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001; /* Ensure it is above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px; /* Limit the modal size */
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Calendar styling in the modal */
+.modal .calendar-container {
+    width: 100%; /* Full width inside the modal */
+    max-width: none; /* Remove any max-width to ensure it fits */
+    margin: 0 auto; /* Center the calendar */
+    padding: 20px; /* Add padding for spacing */
+}
+.modal .pricing-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Responsive layout */
+@media only screen and (max-width: 768px) {
+    .machine-detail-container {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        padding: 0;
+    }
+
+    .calendar-container,
+    .pricing-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .pricing-options {
+        flex-direction: column;
+    }
+
+    .pricing-option {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .calendar-container,
+    .pricing-container {
+        display: none; /* Hide both the calendar and rental rates */
+    }
+    .floating-btn {
+        display: flex; /* Display the button only on smaller screens */
+    }
+    .calendar-container {
+        display: none; /* Hide the calendar in its original position */
+    }
+
+    /* Ensure the calendar is visible when in the modal */
+    .modal .calendar-container {
+        display: block !important; /* Override any hidden states */
+    }
+    .pricing-options {
+        flex-direction: row; /* Keep them in one row */
+        justify-content: space-between; /* Ensure even spacing */
+        gap: 10px; /* Space between boxes */
+        width: 100%; /* Full container width */
+        max-width: none; /* Allow full width in smaller screens */
+    }
+
+    .pricing-option {
+        flex: 1 1 45%; /* Adjust width for smaller screens */
+        padding: 10px;
+    }
+
+    .pricing-option p {
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .pricing-option span {
+        font-size: 0.9rem; /* Adjust description font size */
+    }
+}
+@media screen and (max-width: 768px) {
+        .calendar-container {
+            max-width: 100%;
+            padding: 15px;
+        }
+        .calendar-grid {
+            gap: 3px;
+        }
+        .calendar-day, .weekday {
+            font-size: 0.9rem; 
+            padding: 8px;
+            min-width: 35px; 
+        }
+    
+        .calendar-navigation .arrow-button {
+            font-size: 1rem;
+        }
+    .nav-bar {
+        height: 50px; /* Reduce height for mobile */
+    }
+    .nav-bar #nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column; /* Stack items vertically in mobile view */
+        position: absolute;
+        right: 0;
+        top: 85px; /* Positioned just below the nav bar */
+        background-color: white;
+        width: 200px;
+        z-index: 1000; /* Ensure dropdown is on top */
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    }
+
+    .nav-bar #nav-links.active {
+        display: flex; /* Show links when active class is toggled */
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 60px; /* Adjusted for mobile view */
+        z-index: 1000;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .user-info {
+        position: absolute;
+        top: 50%;
+        right: 90px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    #logout {
+        display: none;
+    }
+    #mobile-logout {
+        display: flex;
+        align-items: center; /* Ensure it's centered if part of a flexbox layout */
+    }
+
+    .footer {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .nav-bar #nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-bar #nav-links li a {
+        font-size: 0.9rem;
+    }
+
+    .menu-icon {
+        font-size: 1.5rem;
+    }
+
+    .user-info {
+        right: 60px;
+    }
+}

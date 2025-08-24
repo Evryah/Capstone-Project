@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Renter/ReviewPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <title>Rate Machine</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="machine_list.html"><i class="fa fa-fw fa-search"></i> Search</a></li>
+                <li><a href="Renter_Reservation.html"><i class="fa fa-fw fa-calendar"></i> Reservations</a></li>
+                <li><a href="EditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+            </ul>
+        </div>
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <a href="ViewProfile.html" id="user-profile-link">
+                <i class="fa fa-user"></i>
+                <span id="user-name">Alden</span>
+            </a>
+            
+            <a href="#" id="logout">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- Review Section -->
+    <div class="review-container">
+        <div class="rate-product">
+            <h2>Rate your Rental Experience</h2>
+            
+            <div class="machine-info">
+                <!-- Machine Image Display -->
+                <div class="machine-image-container">
+                    <img id="machine-image" style="display: none;" alt="Machine Image" />
+                </div>
+            
+                <!-- Machine Name -->
+                <p id="machine-name"></p>
+            </div>
+        
+            <div class="rating-section">
+                <h3>Machine & Operator Performance</h3>
+                <div class="stars" data-label="machine-operator-performance">
+                    <i class="fa fa-star" data-value="1"></i>
+                    <i class="fa fa-star" data-value="2"></i>
+                    <i class="fa fa-star" data-value="3"></i>
+                    <i class="fa fa-star" data-value="4"></i>
+                    <i class="fa fa-star" data-value="5"></i>
+                </div>
+                <p class="rating-label" id="machine-operator-performance-label"></p>
+            </div>
+
+                            <!-- Comment Box for Machine & Operator Performance -->
+            <div class="review-comment" id="machine-operator-performance-comment" style="display: none;">
+                <label for="machine-operator-performance-comment-box">Comment on Machine & Operator Performance:</label>
+                <textarea id="machine-operator-performance-comment-box" placeholder="Share your thoughts to help other renters."></textarea>
+            </div>
+
+
+            <div class="media-upload">
+                <button type="button" id="add-photo-button"><i class="fa fa-camera"></i> Add Photo</button>
+                <input type="file" id="photo-input" style="display: none;" accept="image/*" multiple>
+                <div id="photo-preview-container"></div> <!-- Container for the thumbnail preview -->
+            </div>
+            
+            <div id="lightbox" class="lightbox" style="display: none;">
+                <span class="close-lightbox" id="close-lightbox">&times;</span>
+                <img class="lightbox-content" id="lightbox-image">
+            </div>
+
+
+            <!-- Owner Service -->
+            <div class="rating-section">
+                <h3>Owner Service</h3>
+                <div class="stars" data-label="owner-service">
+                    <i class="fa fa-star" data-value="1"></i>
+                    <i class="fa fa-star" data-value="2"></i>
+                    <i class="fa fa-star" data-value="3"></i>
+                    <i class="fa fa-star" data-value="4"></i>
+                    <i class="fa fa-star" data-value="5"></i>
+                </div>
+                <p class="rating-label" id="owner-service-label"></p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button type="button" id="edit-button" style="display: none;">Edit</button> <!-- Initially hidden -->
+                <button type="button" id="cancel-button">Cancel</button>
+                <button type="submit" id="submit-button">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="home.html">Cruzian Team</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="/Renter/ReviewPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Registration</title>
+    <script type="text/javascript" defer src="reg.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+        </div>
+        <div class="content-side">
+            <div class="login-heading">
+                <img src="/Assets/image/Cruzian.png" alt="Cruzian" title="Cruzian">
+            </div>
+            <div class="sub-heading">
+                <p>Create Your Account</p>
+            </div>
+            <div id="error"></div>
+            <div class="form">
+                <form id="registrationForm" enctype="multipart/form-data">
+                    <!-- Step 1 -->
+                    <div class="form-step form-step-active">
+                        <label for="FirstName">First Name</label><br>
+                        <input type="text" id="FirstName" name="FirstName" class="fname" placeholder="First Name" required>
+                        <span class="error-message" id="FirstNameError"></span><br>
+                
+                        <label for="LastName">Last Name</label><br>
+                        <input type="text" id="LastName" name="LastName" class="fname" placeholder="Last Name" required>
+                        <span class="error-message" id="LastNameError"></span><br>
+                
+                        <label for="PhoneNumber">Phone Number</label><br>
+                        <input type="tel" id="PhoneNumber" name="PhoneNumber" class="phoneno" placeholder=" +63 09" required>
+                        <span class="error-message" id="PhoneNumberError"></span><br>
+
+                                        
+                        <div class="address-barangay-container">
+                            <div class="barangay-wrapper">
+                                <label for="Barangay">Barangay</label><br>
+                                <select id="Barangay" name="Barangay" class="barangay" required>
+                                    <option value="" disabled selected>Select Barangay</option>
+                                    <option value="Ayala">Ayala</option>
+                                    <option value="Balitucan">Balitucan</option>
+                                    <option value="Bucanan">Bucanan</option>
+                                    <option value="Camias">Camias</option>
+                                    <option value="Dolores">Dolores</option>
+                                    <option value="Duat">Duat</option>
+                                    <option value="Escaler">Escaler</option>
+                                    <option value="La Paz">La Paz</option>
+                                    <option value="Navaling">Navaling</option>
+                                    <option value="San Agustin">San Agustin</option>
+                                    <option value="San Antonio">San Antonio</option>
+                                    <option value="San Francisco">San Francisco</option>
+                                    <option value="San Ildefonso">San Ildefonso</option>
+                                    <option value="San Isidro">San Isidro</option>
+                                    <option value="San Jose">San Jose</option>
+                                    <option value="San Miguel">San Miguel</option>
+                                    <option value="San Nicolas I">San Nicolas I</option>
+                                    <option value="San Nicolas II">San Nicolas II</option>
+                                    <option value="San Pablo">San Pablo</option>
+                                    <option value="San Pedro I">San Pedro I</option>
+                                    <option value="San Pedro II">San Pedro II</option>
+                                    <option value="San Roque">San Roque</option>
+                                    <option value="San Vicente">San Vicente</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Lucia">Santa Lucia</option>
+                                    <option value="Santo Niño">Santo Niño</option>
+                                    <option value="Turu">Turu</option>
+                                </select>
+                                <span class="error-message" id="BarangayError"></span>
+                            </div>
+                            
+                            <div class="address-wrapper">
+                                <label for="Address">Address</label><br>
+                                <input type="text" id="Address" name="Address" class="address" 
+                                       placeholder="Street, Municipality, Province" required>
+                                <span class="error-message" id="AddressError"></span>
+                            </div>
+                        </div>
+                
+                        <button type="button" id="nextBtn" class="next-btn">Next</button>
+                    </div>
+                
+                    <!-- Step 2 -->
+                    <div class="form-step">
+                        <label>Registration Type</label><br>
+                        <div class="registration-type">
+                            <input type="radio" id="owner" name="registrationType" value="Owner" required>
+                            <label for="owner">Owner</label>
+                            <input type="radio" id="renter" name="registrationType" value="Renter" required>
+                            <label for="renter">Renter</label><br>
+                        </div>
+                        <span class="error-message" id="registrationTypeError"></span><br>
+                
+                        <label for="UserName">Username</label><br>
+                        <input type="text" id="UserName" name="UserName" class="fname" placeholder="Username" required>
+                        <span class="error-message" id="UserNameError"></span><br>
+                                        <!-- New Password Field -->
+                        <label for="Npassword">New Password</label><br>
+                        <div class="password-container">
+                            <input type="password" id="Npassword" name="Npassword" class="password" placeholder="Enter Password" required>
+                            <i class="fa-regular fa-eye eye-icon" data-target="Npassword"></i> 
+                        </div>
+                        <div id="passwordStrengthBar" class="strength-bar"></div>
+                        <span id="passwordStrengthMessage" class="error-message"></span> 
+                        <span class="error-message" id="NpasswordError"></span><br>
+
+                        <!-- Confirm Password Field -->
+                        <label for="Cpassword">Confirm Password</label><br>
+                        <div class="password-container">
+                            <input type="password" id="Cpassword" name="Cpassword" class="cpassword" placeholder="Confirm Password" required>
+                            <i class="fa-regular fa-eye eye-icon" data-target="Cpassword"></i> 
+                        </div>
+                        <span id="passwordMatchMessage" class="error-message"></span> 
+                        <span class="error-message" id="CpasswordError"></span><br>
+                
+                        <div id="referredByContainer" style="display:none;">
+                            <label for="ReferredBy">Referred by</label><br>
+                            <input type="text" id="ReferredBy" name="ReferredBy" class="referred-by" placeholder="Referred by">
+                            <span class="error-message" id="ReferredByError"></span><br>
+                        </div>
+                
+                        <label for="idType">ID Type</label><br>
+                        <select id="idType" name="idType" class="id-type" required>
+                            <option value="" selected disabled>Select ID Type</option>
+                            <option value="governmentIssued">Government-Issued ID</option>
+                            <option value="barangayResidence">Barangay Residence ID</option>
+                            <option value="cruzianID">Cruzian ID</option>
+                        </select><br>
+                        <span class="error-message" id="idTypeError"></span><br>
+                        
+                
+                        <label for="idDocument">Upload ID Document</label><br>
+                        <input type="file" id="idDocument" name="idDocument" class="document" required>
+                        <span class="error-message" id="idDocumentError"></span><br><br>
+                
+                        <div class="button-container">
+                            <button type="button" id="prevBtn" class="prev-btn">Back</button>
+                            <button type="submit" id="submit">Create your account</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="sign-in-option">
+                <p>Already have an account? <a href="Login.html">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

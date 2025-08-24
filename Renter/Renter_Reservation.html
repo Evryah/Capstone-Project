@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Renter/Renter_Reservation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <!-- Flatpickr Date Range Picker -->
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <title>Reservations</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="machine_list.html"><i class="fa fa-fw fa-search"></i> Search</a></li>
+                <li><a href="Renter_Reservation.html"><i class="fa fa-fw fa-calendar"></i> Reservations</a></li>
+                <li><a href="EditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                <!-- Mobile Logout Button -->
+                <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <a href="ViewProfile.html" id="user-profile-link">
+                <i class="fa fa-user"></i>
+                <span id="user-name">Alden</span>
+            </a>
+            <!-- Desktop Logout Button -->
+            <a href="#" id="logout">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+    
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Reservations Section -->
+        <div class="reservations-page">
+            <!-- Filters Sidebar -->
+            <div class="filters-sidebar">
+                <h3>Product Filters</h3>
+                
+                <!-- Categories Filter -->
+                <div class="filter-category">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li>Pending</li>
+                        <li>Accepted</li>
+                        <li>Ongoing</li>
+                        <li>Completed</li>
+                    </ul>
+                </div>
+                
+                <!-- Equipment Category Filter -->
+                <div class="filter-equipment-category">
+                    <h4>Machine Categories</h4>
+                    <ul>
+                        <li><input type="checkbox" class="equipment-category" value="Tractors"> Tractors</li>
+                        <li><input type="checkbox" class="equipment-category" value="Plowing and Tilling Machinery"> Plowing and Tilling Machinery</li>
+                        <li><input type="checkbox" class="equipment-category" value="Planting and Seeding Machinery"> Planting and Seeding Machinery</li>
+                        <li><input type="checkbox" class="equipment-category" value="Irrigation Equipment"> Irrigation Equipment</li>
+                        <li><input type="checkbox" class="equipment-category" value="Harvesting Machinery"> Harvesting Machinery</li>
+                        <li><input type="checkbox" class="equipment-category" value="Crop Processing Machinery"> Crop Processing Machinery</li>
+                        <li><input type="checkbox" class="equipment-category" value="Fertilizing and Pest Control Machinery"> Fertilizing and Pest Control Machinery</li>
+                        <li><input type="checkbox" class="equipment-category" value="Hay and Forage Equipment"> Hay and Forage Equipment</li>
+                        <li><input type="checkbox" class="equipment-category" value="Livestock Equipment"> Livestock Equipment</li>
+                    </ul>
+                </div>
+                <!-- Add Clear and Apply buttons -->
+                <div class="filter-buttons">
+                    <button id="clear-filters" class="clear-button">Clear</button>
+                    <button id="apply-filters" class="apply-button">Apply</button>
+                </div>
+            </div>
+
+            <!-- Booking History -->
+            <div class="booking-history">
+                <h1>Reservation History</h1>
+                
+                <!-- Filter Button positioned below Booking History -->
+                <button class="filter-button">
+                    <i class="fa fa-filter"></i> Filter
+                </button>
+                
+                <table class="booking-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reservation ID</th>
+                            <th>Machine Name</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="booking-tbody">
+                        <tr>
+                            <td data-label="Date" class="booking-date">02/02/2020</td>
+                            <td data-label="Booking ID">#1234</td>
+                            <td data-label="Equipment Name">JCB</td>
+                            <td data-label="Category" class="equipment-category-data">Tractors</td>
+                            <td data-label="Status"><span class="status pending">Pending</span></td>
+                            <td data-label="Details"><a href="#">View Details</a></td>
+                            <td data-label="Action">
+                                <button class="reject">Reject</button>
+                                <button class="accept">Accept</button>
+                            </td>
+                        </tr>
+                        <td data-label="Date" class="booking-date">02/02/2020</td>
+                        <td data-label="Booking ID">#1234</td>
+                        <td data-label="Equipment Name">JCB</td>
+                        <td data-label="Category" class="equipment-category-data">Tractors</td>
+                        <td data-label="Status"><span class="status pending">Pending</span></td>
+                        <td data-label="Details"><a href="#">View Details</a></td>
+                        <td data-label="Action">
+                            <button class="reject">Reject</button>
+                            <button class="accept">Accept</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Date" class="booking-date">05/02/2020</td>
+                        <td data-label="Booking ID">#5678</td>
+                        <td data-label="Equipment Name">Plowing Machine</td>
+                        <td data-label="Category" class="equipment-category-data">Plowing and Tilling Machinery</td>
+                        <td data-label="Status"><span class="status rejected">Rejected</span></td>
+                        <td data-label="Details"><a href="#">View Details</a></td>
+                        <td data-label="Action">
+                            <button class="reject">Reject</button>
+                            <button class="accept">Accept</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Date" class="booking-date">10/02/2020</td>
+                        <td data-label="Booking ID">#9123</td>
+                        <td data-label="Equipment Name">Seeder</td>
+                        <td data-label="Category" class="equipment-category-data">Planting and Seeding Machinery</td>
+                        <td data-label="Status"><span class="status accepted">Accepted</span></td>
+                        <td data-label="Details"><a href="#">View Details</a></td>
+                        <td data-label="Action">
+                            
+                        </td> 
+                    </tbody>
+                </table>
+                <div id="pagination-controls" style="text-align: center; margin-top: 20px;"></div>
+                <!-- Cancel Confirmation Modal -->
+                <div id="cancelModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeModal">&times;</span>
+                    <h2>Cancel Booking</h2>
+                    <p>Are you sure you want to cancel this booking?</p>
+                    <div class="modal-actions">
+                        <button id="confirmCancel" class="btn confirm">Yes, Cancel</button>
+                        <button id="closeModal" class="btn cancel">No, Keep Booking</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div id="toast" class="toast">Booking successfully canceled</div>
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="home.html">Cruzian Team</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="/Renter/Renter_Reservation.js"></script>
+</body>
+</html>

@@ -1,0 +1,780 @@
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Container Styles */
+.machine-listing {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#logout {
+    display: none;
+}
+
+/* CSS for Filter Button */
+.filter-btn {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 0px; /* Add this line to shift the button to the right */
+}
+
+.filter-btn i {
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+.filter-btn:hover {
+    background-color: #024f29;
+}
+/* Style for the close "X" button inside the sidebar */
+.close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-sidebar:hover {
+    color: #000;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 300px;
+    background-color: #fefefe;
+    padding: 20px;
+    border-right: 2px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 85px);
+    position: sticky;
+    top: 85px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+
+.machine-categories {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.category {
+    padding: 15px;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    text-align: left; /* Ensure the text is left-aligned */
+    justify-content: flex-start; /* Adjust flex alignment */
+}
+
+.category.selected {
+    background-color: #036e3a;
+    color: white;
+}
+
+.category:hover {
+    background-color: #f1f1f1;
+    color: #036e3a;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px; /* Add spacing between input and button */
+}
+
+.search-bar input {
+    width: 300px; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #28a745; /* Green button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.search-bar button i {
+    margin: 0; /* Ensure the icon is centered */
+}
+
+/* Hide the sidebar when the 'hidden' class is applied */
+.sidebar.hidden {
+    display: none;
+}
+
+/* Rating Filter styles */
+.rating-filter {
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.rating-filter h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+}
+
+.star-rating label i {
+    color: #ccc; /* Default star color */
+    font-size: 1.5rem;
+    margin-right: 5px;
+    transition: color 0.3s;
+}
+
+.star-rating input[type="radio"]:checked + label i,
+.star-rating label:hover i, 
+.star-rating label:hover ~ label i {
+    color: gold; /* Change star color when selected or hovered */
+}
+
+/* Style for 'All Ratings' option */
+.star-rating:last-child label {
+    font-size: 1rem;
+    color: #444;
+    margin-left: 0;
+}
+
+.star-rating:last-child label:hover {
+    color: #036e3a;
+}
+
+/* Filter actions */
+.filter-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-clear, .btn-apply {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-clear {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #c9302c;
+}
+
+.btn-apply {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-apply:hover {
+    background-color: #4cae4c;
+}
+
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    padding-top: 120px;
+    padding-bottom: 0;
+}
+
+.content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: auto;
+}
+
+.footer .left-side-footer, .footer .right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.footer .left-side-footer {
+    flex: 1;
+}
+
+.footer .right-side-footer {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-icons a {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px; /* Add padding for smaller screens */
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;  /* Full width for mobile */
+    max-width: 400px;  /* Limit max width for larger screens */
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-icon img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.modal p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+}
+
+.cancel-button {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+.confirm-button {
+    background-color: #d9534f;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #c9302c;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+/* General Button Styles */
+.auth-buttons button, 
+.machine-card .buttons button {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.machine-card .buttons .manage-reservation-button {
+    background-color: #007bff; /* Blue color for "Manage Reservation" button */
+    color: white;
+    margin-top: 10px;
+    width: calc(100% - 20px);
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.machine-card .buttons .manage-reservation-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.machine-card .buttons .manage-reservation-button:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+
+/* Red Button Specific Styles */
+.machine-card .buttons .delete-button {
+    background-color: #d9534f !important;
+    margin-top: 10px;
+    width: calc(100% - 20px);
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.machine-card .buttons .delete-button:hover {
+    background-color: #c9302c !important;
+}
+
+.machine-card .buttons .delete-button:active {
+    background-color: #ac2925 !important;
+}
+
+.machine-card .buttons .delete-button:focus {
+    outline: 2px solid #c9302c;
+    outline-offset: 2px;
+}
+
+
+
+/* Hover Styles */
+.auth-buttons button:hover, 
+.machine-card .buttons button:hover {
+    background-color: #024f29;
+    color: white;
+}
+
+/* Focus Styles */
+.auth-buttons button:focus, 
+.machine-card .buttons button:focus {
+    outline: 2px solid #024f29;
+    outline-offset: 2px;
+}
+
+/* Active Styles */
+.auth-buttons button:active, 
+.machine-card .buttons button:active {
+    background-color: #013d21;
+    color: white;
+}
+
+/* User/Owner Card Styling */
+.owner-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.owner-card .name {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.owner-card .rating {
+    display: flex;
+    align-items: center;
+    color: #FFD700; /* Gold color for stars */
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.owner-card .location,
+.owner-card .phone {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.owner-card .location i,
+.owner-card .phone i {
+    color: #333;
+    margin-right: 8px;
+}
+/* Adjust image in card */
+.owner-card img {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.owner-card .name-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.owner-card .user-type {
+    position: absolute; /* Allow the badge to be placed precisely */
+    top: 10px; /* Adjusts the vertical placement */
+    right: 10px; /* Aligns the badge to the right edge */
+    text-align: right;
+    font-size: 0.8em; /* Unified font size */
+    color: #fff; /* White text for better contrast */
+    margin-bottom: 0; /* Removed margin to avoid shifting */
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px; /* Gives the badge a rounded shape */
+    background-color: #28a745; /* Green for owner */
+}
+
+/* Specific styles for Renter */
+.owner-card .user-type.renter {
+    background-color: #007BFF; /* Blue for renter */
+}
+
+/* Specific styles for Owner */
+.owner-card .user-type.owner {
+    background-color: #28A745; /* Green for owner */
+}
+
+
+/* Machine Card Styles */
+#machine-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.machine-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 0px;
+    width: 200px;
+    min-height: 350px; /* Ensures consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* Ensuring consistent image size */
+.machine-card img {
+    width: 100%;
+    height: 150px; /* Fixed height to keep image sizes consistent */
+    object-fit: cover; /* Ensures images are cropped consistently */
+}
+
+.machine-card .rating, 
+.machine-card .price, 
+.machine-card .name, 
+.machine-card .description {
+    margin: 10px 0;
+}
+
+/* Ensuring rating icons don't distort the layout */
+.machine-card .rating i {
+    color: gold;
+}
+
+/* Padding and layout of buttons */
+.machine-card .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.machine-card .price {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.machine-card .name {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Toast Notification Styles */
+.toast {
+    visibility: hidden;
+    width: auto;
+    max-width: 90%;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15%;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Layout for the buttons inside the machine card */
+.machine-card .top-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+/* Pagination styles */
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pagination-controls button {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#pagination-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#pagination-controls button:hover:not(:disabled) {
+    background-color: #024f29;
+}
+
+#pagination-controls span {
+    font-size: 1rem;
+    margin-left: 15px;
+    color: #333;
+}
+.user-info #user-profile-link i.fa-user {
+    color: black; /* Set the color to black */
+}
+
+#admin-link {
+    list-style: none; /* Remove default list styling */
+    margin-left: -10px; /* Move the Admin link 10px to the left */
+    display: inline-block;
+}
+
+#admin-link a {
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Maintain font consistency */
+    color: black; /* Default text color */
+    padding: 5px 10px; /* Optional: Adjust spacing if needed */
+    display: inline-block;
+}
+
+#admin-link a:hover {
+    color: #036e3a; /* Change color on hover for emphasis */
+}
+/* Base styles for body and HTML */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+/* Hide the desktop logout button in mobile view */
+#logout {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    /* Hide the mobile logout button on desktop view */
+    .mobile-logout {
+        display: none;
+    }
+
+    /* Show the desktop logout button */
+    .user-info #logout {
+        display: inline;
+    }
+}
+@media (max-width: 768px) {
+    #machine-card-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+
+    .mobile-logout {
+        display: block;
+    }
+
+    /* Ensure the user-info's logout button is hidden on mobile */
+    .user-info #logout {
+        display: none;
+    } 
+
+    .modal-content {
+        width: 90%; 
+    }
+
+    .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaa;
+    }
+
+    .close-button:hover {
+    color: #000;
+    }
+}
+
+@media (max-width: 992px) {
+    #machine-card-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row on tablets */
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    /* Sidebar visible in responsive mode (on toggle) */
+    .sidebar.visible {
+        transform: translateX(0);
+    }
+}
+.sidebar.hidden {
+    display: none;
+}
+
+@media (max-width: 576px) {
+    #machine-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 20px;
+    }
+}

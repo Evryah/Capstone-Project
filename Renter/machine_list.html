@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Renter/machine_list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <!-- Flatpickr Date Range Picker -->
+    <link rel="stylesheet" href="/lib/flatpickr.min.css">
+    <script src="/lib/flatpickr.js"></script>
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <title>Machine List</title>
+    <script src="/Renter/machine_list.js" defer></script>
+</head>
+
+<body>
+    <div class="machine-listing">
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+            <div class="left-side">
+                <div class="logo">
+                    <img src="/Assets/image/Cruzian.png" alt="Cruzian-Logo" title="Cruzian">
+                </div>
+            </div>
+            <div class="right-side">
+                <ul id="nav-links">
+                    <li><a href="machine_list.html"><i class="fa fa-fw fa-search"></i> Search</a></li>
+                    <li><a href="Renter_Reservation.html"><i class="fa fa-fw fa-calendar"></i> Reservations</a></li>
+                    <li><a href="EditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                    <!-- Mobile Logout Button -->
+                    <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    <ul>
+                    </ul>
+                </div>
+                <div class="user-info">
+                    <!-- Dynamic content for login/register or user info -->
+                    <div id="auth-section">
+                        <!-- JavaScript will dynamically inject the content here -->
+                    </div>
+                </div>
+                <!-- Hamburger Menu Icon -->
+                <div class="menu-icon">
+                    <i class="fa fa-bars"></i>
+                </div>
+        </div>                
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar for filters -->
+            <div class="sidebar">
+                <span class="close-sidebar">&times;</span> <!-- Close button -->
+                <!-- Rating Filter Section -->
+                <div class="rating-filter">
+                    <h4>Filter by Rating</h4>
+                    <div class="star-rating">
+                        <input type="radio" id="rating5" name="rating" value="5">
+                        <label for="rating5">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="star-rating">
+                        <input type="radio" id="rating4" name="rating" value="4">
+                        <label for="rating4">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="star-rating">
+                        <input type="radio" id="rating3" name="rating" value="3">
+                        <label for="rating3">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="star-rating">
+                        <input type="radio" id="rating2" name="rating" value="2">
+                        <label for="rating2">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="star-rating">
+                        <input type="radio" id="rating1" name="rating" value="1">
+                        <label for="rating1">
+                            <i class="fa fa-star"></i>
+                        </label>
+                    </div>
+                    <div class="star-rating">
+                        <input type="radio" id="ratingAll" name="rating" value="all" checked>
+                        <label for="ratingAll">All Ratings</label>
+                    </div>
+                </div>
+                
+
+                <!-- Categories Section -->
+                <div class="machine-categories">
+                    <h4>Categories</h4>
+                    <div class="category" data-category="Tractors">Tractors</div>
+                    <div class="category" data-category="Plowing and Tilling Machinery">Plowing and Tilling Machinery</div>
+                    <div class="category" data-category="Planting and Seeding Machinery">Planting and Seeding Machinery</div>
+                    <div class="category" data-category="Irrigation Equipment">Irrigation Equipment</div>
+                    <div class="category" data-category="Harvesting Machinery">Harvesting Machinery</div>
+                    <div class="category" data-category="Crop Processing Machinery">Crop Processing Machinery</div>
+                    <div class="category" data-category="Fertilizing and Pest Control Machinery">Fertilizing and Pest Control Machinery</div>
+                    <div class="category" data-category="Hay and Forage Equipment">Hay and Forage Equipment</div>
+                    <div class="category" data-category="Livestock Equipment">Livestock Equipment</div>
+                </div>
+                
+
+                <!-- Clear Button -->
+                <div class="filter-actions">
+                    <button id="clearBtn" class="btn-clear">Clear</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Dropdown moved outside the search bar -->
+                <div class="category-dropdown">
+                    <select id="categorySelect">
+                        <option value="all">All</option>
+                        <option value="availability">Availability</option>
+                        <option value="location">Barangay</option>
+                    </select>
+                </div>
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <select id="barangayDropdown" style="display: none;">
+                        <option value="" disabled selected>Select a Barangay</option>
+                        <option value="Ayala">Ayala</option>
+                        <option value="Balitucan">Balitucan</option>
+                        <option value="Bucanan">Bucanan</option>
+                        <option value="Camias">Camias</option>
+                        <option value="Dolores">Dolores</option>
+                        <option value="Duat">Duat</option>
+                        <option value="Escaler">Escaler</option>
+                        <option value="La Paz">La Paz</option>
+                        <option value="Navaling">Navaling</option>
+                        <option value="San Agustin">San Agustin</option>
+                        <option value="San Antonio">San Antonio</option>
+                        <option value="San Francisco">San Francisco</option>
+                        <option value="San Ildefonso">San Ildefonso</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="San Nicolas I">San Nicolas I</option>
+                        <option value="San Nicolas II">San Nicolas II</option>
+                        <option value="San Pablo">San Pablo</option>
+                        <option value="San Pedro I">San Pedro I</option>
+                        <option value="San Pedro II">San Pedro II</option>
+                        <option value="San Roque">San Roque</option>
+                        <option value="San Vicente">San Vicente</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Santa Lucia">Santa Lucia</option>
+                        <option value="Santo Niño">Santo Niño</option>
+                        <option value="Turu">Turu</option>
+                    </select>
+                    <input type="text" id="keywordInput" placeholder="Search Users">
+                    <button id="searchBtn"><i class="fa fa-search"></i></button>
+                </div>
+                
+
+                <!-- Filter Button with Font Awesome icon -->
+                <button id="filter-btn" class="filter-btn">
+                    <i class="fa fa-filter"></i> Filter
+                </button>
+
+                <!-- Machine Cards -->
+                <div id="machine-card-container"></div>
+
+                <!-- No Results Message -->
+                <div id="no-results" class="no-results" style="display:none;">
+                    No machines match your search criteria.
+                </div>
+
+                 <!-- New No Users Found Message -->
+                 <div id="no-users" class="no-results" style="display:none;">
+                    No matching users found.
+                </div>
+                
+                <!-- Pagination Controls -->
+                <div id="pagination-controls"></div>
+            </div>
+        </div>
+
+        <div id="toast" class="toast">"Goodbye! Come back anytime"</div>     
+
+        <!-- Footer -->
+        <section class="footer">
+            <div class="left-side-footer">
+                <p>&copy; 2024 All Rights Reserved. Cruzian</p>
+            </div>
+            <div class="right-side-footer">
+                <p>Web Design and Development by <a href="home.html">Cruzian Team</a></p>
+                <div id="contact-icons" class="contact-icons">
+                    <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                    <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                    <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

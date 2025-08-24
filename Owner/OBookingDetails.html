@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Owner/OBookingDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="/Assets/image/CLOGO.png" type="image/png"> 
+    <title>Booking Details</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="left-side">
+            <div class="logo">
+                <img src="/Assets/image/Cruzian.png" alt="GreenTrust-Logo" title="GreenTrust">
+            </div>
+        </div>
+        <div class="right-side">
+            <ul id="nav-links">
+                <li><a href="My_Machine.html"><i class="fa fa-fw fa-tractor"></i>My Machines</a></li>
+                <li><a href="Machine_Listing.html"><i class="fa fa-fw fa-clipboard-list"></i>List a Machine</a></li>
+                <li><a href="Owner_Reservation.html"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Reservations</a></li>
+                <li><a href="OEditProfile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                
+                 <!-- Add the logout button here for mobile view -->
+                 <li class="mobile-logout"><a href="#" id="mobile-logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="notifications">
+                <i class="fa fa-bell"></i>
+                <span class="notification-count">2</span>
+            </div>
+            <a href="OwnerViewProfile.html" id="user-profile-link">
+                <i class="fa fa-user"></i>
+                <span id="user-name">Alden</span>
+            </a>
+            <a href="#" id="logout"><i class="fa fa-sign-out"></i> Logout</a>
+            </a>
+        </div>
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- Main Wrapper to Center Content -->
+    <div class="main-wrapper">
+        <div class="main-content">
+            
+            
+            <!-- Booking Section -->
+            <div class="booking-section">
+                <!-- Booking Details -->
+                <div class="booking-details">
+                    <div class="header">
+                        <h2>Reservation Details</h2>
+                        <span class="status pending" id="status">Pending</span>
+                    </div>
+                    <table class="booking-info">
+                        <tr>
+                            <th>Date</th>
+                            <th>Booking ID</th>
+                            <th>Category</th>
+                            <th>Equipment Name</th>
+                        </tr>
+                        <tr>
+                            <td id="created-date">Loading...</td> 
+                            <td id="booking-id">Loading...</td>
+                            <td id="machine-category">Loading...</td>
+                            <td id="machine-title">Loading...</td>
+                        </tr>
+                    </table>
+                    <table class="renter-info">
+                        <tr>
+                            <th>Renter Name</th>
+                            <th>Contact No.</th>
+                            <th>Address</th>
+                        </tr>
+                        <tr>
+                            <td id="renter-name">Loading...</td>
+                            <td id="renter-phone">Loading...</td>
+                            <td id="renter-address">Loading...</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Owner Details -->
+                <div class="owner-details">
+                    <div class="owner-info">
+                        <div class="owner-header">
+                            <h4>Your Information</h4>
+                        </div>
+                        <div class="owner-details-section">
+                            <p><strong id="owner-name">Owner Full Name</strong></p>
+                            <p id="owner-address">Owner Address</p>
+                            <p id="owner-phone">Owner Phone Number</p>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <th>Start</th>
+                            <td id="start-date">Loading...</td>
+                        </tr>
+                        <tr>
+                            <th>End</th>
+                            <td id="end-date">Loading...</td>
+                        </tr>
+                        <tr>
+                            <th>No. of days</th>
+                            <td id="num-days">Loading...</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+             <!-- Action Buttons Section -->
+             <div class="action-buttons" id="action-buttons">
+                <!-- Buttons and dynamically added elements will go here -->
+            </div>
+            
+            <!-- Buttons for cancelling and sending request -->
+            <div class="action-buttons">
+                <button id="reject-button" class="btn reject">Reject</button>
+                <button id="accept-button" class="btn accept">Accept</button>
+
+                <!-- Accept Confirmation Modal -->
+                <div id="acceptModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeAcceptModal">&times;</span>
+                        <h2>Accept Booking</h2>
+                        <p>Are you sure you want to accept this booking?</p>
+                        <div class="modal-actions">
+                            <button id="confirmAccept" class="btn accept">Yes, Accept</button>
+                            <button id="closeAccept" class="btn cancel">No, Keep Pending</button> <!-- Correct ID -->
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Reject Confirmation Modal -->
+                <div id="rejectModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeRejectModal">&times;</span>
+                        <h2>Reject Booking</h2>
+                        <p>Are you sure you want to reject this booking?</p>
+                        <div class="modal-actions">
+                            <button id="confirmReject" class="btn reject">Yes, Reject</button>
+                            <button id="closeReject" class="btn cancel">No, Keep Pending</button> <!-- Correct ID -->
+                            <div class="action-buttons" id="action-buttons">
+                                <!-- Buttons and dynamically added elements will go here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Notification message here</div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="left-side-footer">
+            <p>&copy; 2024 All Rights Reserved. Cruzian.</p>
+        </div>
+        <div class="right-side-footer">
+            <p>Web Design and Development by <a href="home.html">Cruzian</a></p>
+            <div id="contact-icons" class="contact-icons">
+                <a href="mailto:info@greentrust.rentals"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="tel:+11234567890"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="/Owner/OBookingDetails.js"></script>
+</body>
+</html>

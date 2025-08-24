@@ -1,0 +1,873 @@
+/* Base styles for body and HTML */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+#logout {
+    display: none;
+}
+.user-info a {
+    text-decoration: none;  /* Removes the underline from the link */
+    color: inherit;         /* Ensures it inherits the color from its parent (if necessary) */
+}
+.user-info i.fa-user {
+    color: #444;
+}
+
+.category-dropdown {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Adds space between dropdown and search bar */
+}
+
+.category-dropdown select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Toast Notification Styles */
+.toast {
+    visibility: hidden;
+    width: auto;
+    max-width: 90%;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15%;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 85px;
+    background-color: white;
+    justify-content: space-between;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .logo {
+    height: 100%;
+}
+
+.nav-bar .logo img {
+    height: 100%;
+}
+
+.nav-bar #nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-bar #nav-links li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#nav-links li {
+    position: relative;
+}
+
+#nav-links li a::before {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: #036e3a;
+    position: absolute;
+    bottom: -10px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    left: 0.4%;
+}
+
+#nav-links .activate a::before,
+#nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+    right: 50px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #444;
+}
+
+.user-info #user-profile-link i.fa-user {
+    color: black; /* Set the color to black */
+}
+
+/* Style for logout link */
+#logout {
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+#logout i {
+    font-size: 1.2rem;
+}
+
+#logout:hover {
+    color: #036e3a;
+    background-color: #f0f0f0;
+    border-color: #036e3a;
+}
+
+/* Notification styles */
+.notifications {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications .fa-bell {
+    font-size: 1.5rem;
+    color: #444;
+    margin-right: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+#logout {
+    display: none;
+}
+/* Mobile Menu Styles */
+.menu-icon {
+    display: block; /* Ensure it is visible */
+    position: absolute;
+    right: 10px; /* Adjust to your preference */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    color: #444; /* Ensure it's visible with appropriate color */
+}
+/* Machine listing container */
+.machine-listing {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Align the authentication buttons on the right */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.auth-buttons #login,
+.auth-buttons {
+    width: 10rem;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--main);
+    background: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+/* Main content styles */
+.main-content {
+    display: flex;
+    flex: 1;
+    padding-top: 120px;
+}
+.close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-sidebar:hover {
+    color: #000;
+}
+/* Sidebar styles */
+.sidebar {
+    width: 300px;
+    background-color: #fefefe;
+    padding: 20px;
+    border-right: 2px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 85px);
+    position: sticky;
+    top: 85px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.machine-categories {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.category {
+    padding: 15px;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    text-align: left; /* Ensure the text is left-aligned */
+    justify-content: flex-start; /* Adjust flex alignment */
+}
+
+.category:hover {
+    background-color: #f1f1f1;
+    color: #036e3a;
+}
+
+#barangayDropdown {
+    width: auto; /* Adjust to desired width */
+    max-width: 400px; /* Set a maximum width */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Hide the sidebar when the 'hidden' class is applied */
+.sidebar.hidden {
+    display: none;
+}
+
+/* Filter Button Styles */
+.filter-btn {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-btn i {
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+.filter-btn:hover {
+    background-color: #024f29;
+}
+#filter-btn {
+    margin-left: 0px;
+}
+
+/* Content styles */
+.content {
+    width: 100%;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search-bar select, .search-bar input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Custom style for the category select dropdown */
+.search-bar select {
+    appearance: none;
+    background-color: #fff;
+    padding-right: 30px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj4gPHBhdGggZmlsbD0iIzAwMCIgZD0iTTAgMi42bDYgNiA2LTZ6Ii8+IDwvc3ZnPg==');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.search-bar input {
+    width: 190px;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.search-bar button:hover {
+    background-color: #218838;
+}
+
+/* Machine card styles */
+#machine-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.machine-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 5px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.machine-card .card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.machine-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.machine-card .rating, .machine-card .price, .machine-card .name, .machine-card .description {
+    margin: 10px 0;
+}
+
+.machine-card .rating i {
+    color: gold;
+}
+
+.machine-card .price {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.machine-card .name {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.machine-card .description {
+    color: #666;
+    padding: 0 10px;
+}
+
+.machine-card .view-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #036e3a;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.machine-card .view-button:hover {
+    background-color: #024f29;
+    color: white;
+}
+
+.machine-card .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.machine-card .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #036e3a;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.machine-card .buttons button:hover {
+    background-color: #024f29;
+}
+/* User/Owner Card Container */
+.owner-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* User/Owner Card Title */
+.owner-card .name {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* Rating Style */
+.owner-card .rating {
+    display: flex;
+    align-items: center;
+    color: #FFD700; /* Gold color for stars */
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+/* Location and Contact Info */
+.owner-card .location,
+.owner-card .phone {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+/* Icon styles for location and phone */
+.owner-card .location i,
+.owner-card .phone i {
+    color: #333;
+    margin-right: 8px;
+}
+
+/* Adjust image in card */
+.owner-card img {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.owner-card .name-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.owner-card .user-type {
+    align-self: flex-end; /* Aligns only this element to the right */
+    text-align: right;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px; /* Gives the badge a rounded shape */
+    font-size: 0.8em;
+    color: #fff; /* White text for better contrast */
+}
+
+/* Specific styles for Renter */
+.owner-card .user-type.renter {
+    background-color: #007BFF; /* Blue for renter */
+}
+
+/* Specific styles for Owner */
+.owner-card .user-type.owner {
+    background-color: #28A745; /* Green for owner */
+}
+
+
+/* Pagination styles */
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pagination-controls button {
+    background-color: #036e3a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#pagination-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#pagination-controls button:hover:not(:disabled) {
+    background-color: #024f29;
+}
+
+#pagination-controls span {
+    font-size: 1rem;
+    margin-left: 15px;
+    color: #333;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.left-side-footer,
+.right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.left-side-footer p,
+.right-side-footer p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.right-side-footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 15px;
+}
+
+.right-side-footer a:hover {
+    cursor: pointer;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-icons a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 993px) {
+    .sidebar {
+        display: block;
+        left: 0;
+    }
+
+    .sidebar.hidden {
+        display: none;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    #machine-card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    #machine-card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 4 columns */
+        gap: 5px;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: 0;
+        transform: translateX(-100%); /* Initially hidden off-screen */
+        width: 300px;
+        transition: transform 0.3s ease; /* Smooth transition for sliding */
+    }
+
+    /* Ensure the visible class brings the sidebar into view */
+    .sidebar.visible {
+        transform: translateX(0); /* Slide the sidebar into view */
+    }
+}
+@media (min-width: 769px) {
+    .mobile-logout {
+        display: none;
+    }
+
+    /* Show the desktop logout button */
+    .user-info #logout {
+        display: inline;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-logout {
+        display: block;
+    }
+
+    /* Hide the desktop logout button in mobile view */
+    .user-info #logout {
+        display: none;
+    }
+
+    #machine-card-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+    /* Hide the footer on very small screens */
+    .footer {
+        display: none;
+    }
+
+
+    .machine-card {
+        width: calc(100% - 20px);
+    }
+
+    .footer {
+        display: none;
+    }
+
+
+    .notification-dropdown {
+        width: 100%;
+        max-width: 300px;
+        right: 10px;
+        top: 40px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    #machine-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 20px;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .notification-dropdown {
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: calc(100% - 20px);
+    }
+}
+
+
+/* Star Rating Style */
+.star-rating label i {
+    color: #ccc; /* Default star color */
+    font-size: 1.5rem;
+    margin-right: 5px;
+    transition: color 0.3s;
+}
+
+.star-rating input[type="radio"]:checked + label i,
+.star-rating label:hover i, 
+.star-rating label:hover ~ label i {
+    color: gold; /* Change star color when selected or hovered */
+}
+
+/* Ensure stars stay gold when selected */
+.star-rating input[type="radio"]:checked ~ label i {
+    color: gold;
+}
+
+.rating-filter {
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.rating-filter h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+}
+
+/* Style for 'All Ratings' option */
+.star-rating:last-child label {
+    font-size: 1rem;
+    color: #444;
+    margin-left: 0;
+}
+
+.star-rating:last-child label:hover {
+    color: #036e3a;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-clear, .btn-apply {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-clear {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #c9302c;
+}
+
+.btn-apply {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-apply:hover {
+    background-color: #4cae4c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .filter-actions {
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .btn-clear, .btn-apply {
+        flex: 1;
+        margin: 0;
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    #logout {
+        display: none;
+    }
+}

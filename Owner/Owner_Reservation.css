@@ -1,0 +1,846 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Ensures padding and borders are included in element's width and height */
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 85px;
+    background-color: white;
+    justify-content: space-between;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .logo {
+    height: 100%;
+}
+
+.nav-bar .logo img {
+    height: 100%;
+}
+
+.nav-bar #nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-bar #nav-links li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#nav-links li {
+    position: relative;
+}
+
+#nav-links li a::before {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: #036e3a;
+    position: absolute;
+    bottom: -10px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    left: 0.4%;
+}
+
+#nav-links .activate a::before,
+#nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    position: relative;
+    right: 50px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Style for logout link */
+#logout {
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+#logout {
+    display: none;
+}
+
+#logout i {
+    font-size: 1.2rem;
+}
+
+#logout:hover {
+    color: #036e3a;
+    background-color: #f0f0f0;
+    border-color: #036e3a;
+}
+.user-info #user-profile-link i.fa-user {
+    color: black; /* Set the color to black */
+}
+
+/* Notification styles */
+.notifications {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications .fa-bell {
+    font-size: 1.5rem;
+    color: #444;
+    margin-right: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: block; /* Ensure it is visible */
+    position: absolute;
+    right: 10px; /* Adjust to your preference */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    color: #444; /* Ensure it's visible with appropriate color */
+}
+
+/* Reservations Page Layout */
+.reservations-page {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+
+/* Filter Button Styles */
+.filter-button {
+    background-color: #036e3a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.filter-button:hover {
+    background-color: #025c30;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.filters-sidebar.hidden {
+    display: none;
+}
+
+.filters-sidebar.active {
+    display: block;
+}
+
+.filters-sidebar h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.filters-sidebar .filter-category {
+    margin-bottom: 20px;
+}
+
+.filters-sidebar h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.filters-sidebar ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.filters-sidebar ul li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #036e3a;
+}
+
+.filters-sidebar.filter-active {
+    border: 2px solid #036e3a;
+    background-color: #e8f5e9; /* Light green background */
+}
+
+/* You can also highlight specific category buttons or active elements */
+.filter-category li.active {
+    background-color: #036e3a;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 5px; /* Reduced padding */
+    display: inline-block; /* Makes the highlight wrap the text */
+    max-width: fit-content; /* Ensures it doesn't extend too long */
+}
+/* Apply and Clear Button Styles */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.apply-button, .clear-button {
+    background-color: #036e3a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+    background-color: #025c30;
+}
+
+.clear-button {
+    background-color: #e53935;
+}
+
+.clear-button:hover {
+    background-color: #d32f2f;
+}
+
+button.mark-as-finished {
+    background-color: #17a2b8; /* Teal */
+    color: white; /* White text */
+    padding: 8px 16px; /* Balanced padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button.mark-as-finished:hover {
+    background-color: #138496; /* Darker teal on hover */
+}
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .btn.accept {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal .btn.reject {
+    background-color: #d9534f;
+    color: white;
+}
+
+.modal .btn.cancel {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.modal .btn:hover {
+    opacity: 0.9;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+/* Modal for complete action */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .btn.accept {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal .btn.cancel {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+/* Toast Notification Styles */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Booking History */
+.booking-history {
+    width: 100%;
+    max-width: 1200px; /* Ensure that the booking cards don't exceed a certain width */
+    padding: 20px;
+    margin: 0 auto; /* Center the booking history on the screen */
+    background-color: #f5f5f5;
+    overflow-x: auto;
+    transition: width 0.3s ease;
+}
+
+.booking-history.adjusted {
+    width: 70%;
+}
+
+.booking-history h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #036e3a;
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px; /* Add padding inside the table */
+}
+
+.booking-table th, .booking-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box; /* Ensure padding is included in the element's width */
+}
+
+.booking-table th {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.booking-table td {
+    color: #555;
+}
+
+.booking-table a {
+    color: #036e3a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Status Labels */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.status.cancelled {
+    background-color: #757575;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.status.pending {
+    color: orange;
+}
+
+.status.rejected {
+    color: red;
+}
+
+.status.accepted {
+     color: green;
+}
+.status.ongoing {
+    color: #007bff;
+}
+
+.status.completed {
+    background-color: gold;
+}
+
+
+/* Action Buttons */
+.booking-table button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: all 0.3s;
+}
+
+button.reject {
+    background-color: transparent;
+    border: 2px solid #e53935;
+    color: #e53935;
+}
+
+button.accept {
+    background-color: green;
+    color: white;
+}
+
+button.reject:hover {
+    background-color: #e53935;
+    color: white;
+}
+
+button.accept:hover {
+    background-color: #1565c0;
+}
+
+.view-review-button {
+    background-color: #e74c3c; /* Red background */
+    color: white !important; /* Change text color to white */
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.view-review-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.view-review-button:active {
+    background-color: #a93226; /* Even darker when clicked */
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background-color: #036e3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.footer .left-side-footer, .footer .right-side-footer {
+    display: flex;
+    align-items: center;
+}
+
+.footer .left-side-footer {
+    flex: 1;
+}
+
+.footer .right-side-footer {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.footer p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-icons {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icons a {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+    .filters-sidebar, .booking-history {
+        width: 100%;
+    }
+}
+@media (min-width: 769px) {
+    .mobile-logout {
+        display: none;
+    }
+
+    /* Show the desktop logout button */
+    .user-info #logout {
+        display: inline;
+    }
+}
+/* Responsive Modal for Smaller Screens */
+@media (max-width: 768px) {
+    .mobile-logout {
+        display: block;
+    }
+
+    /* Hide the desktop logout button in mobile view */
+    .user-info #logout {
+        display: none;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 30% auto; /* Adjust margin for better alignment */
+        padding: 15px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal .btn {
+        width: 100%; /* Buttons take full width */
+        padding: 12px 0;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-content {
+        width: 95%;  /* Modal takes more width on smaller screens */
+        margin: 40% auto;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modal .btn {
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .close {
+        font-size: 22px;
+    }
+}
+
+/* Update for mobile menu toggle */
+@media screen and (max-width: 768px) {
+    .nav-bar #nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column; /* Stack items vertically in mobile view */
+        position: absolute;
+        right: 0;
+        top: 85px; /* Positioned just below the nav bar */
+        background-color: white;
+        width: 200px;
+        z-index: 1000; /* Ensure dropdown is on top */
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    }
+
+    .nav-bar #nav-links.active {
+        display: flex; /* Show links when active class is toggled */
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 60px; /* Adjusted for mobile view */
+        z-index: 1000;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .user-info {
+        position: absolute;
+        top: 50%;
+        right: 90px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    #logout {
+        display: none;
+    }
+
+    .filters-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .booking-history {
+        width: 100%;
+        padding: 10px; /* Add padding for small screens */
+        margin: 0 10px; /* Centering the cards with margins */
+    }
+
+    .booking-table, .booking-table thead, .booking-table tbody, .booking-table th, .booking-table td, .booking-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .booking-table thead {
+        display: none;
+    }
+
+    .booking-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 10px;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .booking-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        font-size: 0.9rem;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        overflow: hidden;
+    }
+
+    .booking-table td:last-child {
+        border-bottom: none;
+        padding-right: 10px; /* Padding on the right to avoid stickiness */
+    }
+
+    .booking-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        flex: 1;
+        padding-right: 15px;
+        color: #036e3a;
+    }
+
+    .footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-bar #nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-bar #nav-links li a {
+        font-size: 0.9rem;
+    }
+
+    .menu-icon {
+        font-size: 1.5rem;
+    }
+
+    .user-info {
+        right: 60px;
+    }
+
+    .filters-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .booking-history {
+        width: 100%;
+        margin: 0 10px;
+        overflow-x: auto;
+    }
+
+    .booking-table th, .booking-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .date-input {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .footer a {
+        font-size: 1rem;
+    }
+
+    .contact-icons a {
+        font-size: 1.3rem;
+    }
+}

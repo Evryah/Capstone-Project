@@ -1,0 +1,326 @@
+/* General Styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --main: #036e3a;
+}
+
+body {
+    background-image: url("/Assets/image/log1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Login Form Container */
+.container {
+    width: 999px;
+    height: 690px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+}
+
+.container .image-side {
+    background-image: url("/Assets/image/log2.jpg");
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    border-radius: 20px 0px 0px 20px;
+}
+
+.container .content-side {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.47);
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-heading {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-heading img {
+    width: 250px;
+    height: auto;
+}
+
+#sub-heading-1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #036e3a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#sub-heading-2, #sub-heading-3 {
+    text-align: center;
+    color: #036e3a;
+    margin-bottom: 10px;
+}
+
+#sub-heading-3 {
+    color: #555;
+    font-weight: 550;
+}
+
+.form {
+    width: 100%;
+}
+
+/* Login Type Selection */
+.login-type {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+}
+
+.login-type label {
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.login-type input[type="radio"] {
+    margin-right: 5px;
+    accent-color: #010a06;
+}
+
+/* Input Fields */
+.form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #036e3a;
+}
+
+.form .username, .form .Password {
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+::placeholder {
+    color: #555;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Remember Me */
+.rememberme {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+/* Submit Button */
+.submit {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    outline: none;
+    border: 2px solid black;
+    padding: 5px;
+    margin-top: 15px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.244);
+    color: white;
+}
+
+.submit:hover {
+    background-color: #036e3a;
+    color: white;
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #036e3a;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+/* Password Field with Icon */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex-grow: 1;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #036e3a;
+    font-size: 1.2rem;
+}
+
+.toggle-password:hover {
+    color: #024f2b;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content lottie-player {
+    margin: 0 auto; /* Center the animation horizontally */
+    display: block; /* Ensure the element behaves as a block */
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    margin-bottom: 20px; /* Add spacing below the animation */
+}
+
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center; /* Align all content to the center */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Spinner Animation */
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Footer */
+#footer {
+    text-align: center;
+    padding-top: 15px;
+    color: black;
+    font-size: 0.9rem;
+}
+
+#footer a {
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+#footer a:hover {
+    color: #036e3a;
+}
+
+@media (max-width: 992px) {
+    .image-side {
+        display: none;
+    }
+
+    .container .content-side {
+        width: 100%;
+        left: 0;
+        height: 100%;
+        border-radius: 0px;
+        backdrop-filter: blur(3px);
+    }
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    display: none;
+}
