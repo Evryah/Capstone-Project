@@ -5,11 +5,17 @@ Built with **HTML, CSS, JavaScript, Node.js, and MySQL**.
 
 🚀 Features
 👨‍🌾 Farmer & Owner Accounts with authentication
+
 🕒 Real-time reservation system with calendar availability
+
 📝 Machine listing with images, pricing, and details
+
 ⭐ Review & rating system (owner ↔ renter feedback)
+
 🛠 Admin panel for approving users & monitoring reservations
+
 🔐 Secure login using JWT
+
 📁 Database integration with MySQL
 
 
