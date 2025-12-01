@@ -18,6 +18,7 @@ The Agri Machinery Reservation System is a web-based platform that allows Magala
 
 📁 Database integration with MySQL
 
+**Note:** The project is currently about 80% complete. Core farmer and owner features are functional, but some administrator features are not yet finished.
 
 
 ## Setup
